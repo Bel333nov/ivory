@@ -1,0 +1,209 @@
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ivory: #C9A96E;
+  --bg: #F8F7F4;
+  --text: #181714;
+  --muted: #918D85;
+  --line: rgba(24,23,20,0.1);
+}
+body { font-family: 'Inter', sans-serif; background: var(--bg); }
+.page { max-width: 420px; margin: 0 auto; padding-bottom: 72px; }
+
+.hero { padding: 64px 28px 52px; text-align: center; }
+.eyebrow { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 28px; }
+.eyebrow-line { width: 28px; height: 0.5px; background: var(--ivory); }
+.eyebrow-text { font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.hero-title { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; line-height: 1.1; color: var(--text); letter-spacing: -0.02em; margin-bottom: 20px; }
+.hero-title em { font-style: italic; color: var(--ivory); }
+.hero-divider { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--ivory), transparent); margin: 0 auto 20px; }
+.hero-sub { font-size: 13px; line-height: 1.75; color: var(--muted); font-weight: 300; max-width: 280px; margin: 0 auto; }
+
+.services { border-top: 0.5px solid var(--line); }
+.service-item { border-bottom: 0.5px solid var(--line); }
+.service-inner { padding: 24px 28px; }
+.service-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.service-left { flex: 1; }
+.service-num { font-size: 10px; letter-spacing: 0.18em; color: var(--ivory); font-weight: 500; margin-bottom: 6px; display: block; }
+.service-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--text); line-height: 1.2; margin-bottom: 8px; }
+.service-desc { font-size: 12px; line-height: 1.65; color: var(--muted); font-weight: 300; }
+.service-tag-pill { display: inline-block; margin-top: 10px; padding: 3px 10px; border: 0.5px solid var(--ivory); border-radius: 20px; font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ivory); font-weight: 500; }
+.service-arrow { font-size: 16px; color: var(--ivory); opacity: 0.5; flex-shrink: 0; margin-top: 2px; }
+
+.carousel-wrap { padding-bottom: 20px; }
+.carousel-scroll { display: flex; gap: 8px; overflow-x: auto; padding: 0 28px 4px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.carousel-scroll::-webkit-scrollbar { display: none; }
+.carousel-img { flex-shrink: 0; width: 210px; height: 155px; object-fit: cover; border-radius: 10px; scroll-snap-align: start; display: block; }
+.carousel-dots { display: flex; justify-content: center; gap: 5px; padding-top: 10px; }
+.dot { width: 4px; height: 4px; border-radius: 50%; background: var(--ivory); opacity: 0.25; transition: opacity 0.2s; }
+.dot.active { opacity: 1; }
+
+.approach { padding: 48px 28px 40px; border-top: 0.5px solid var(--line); }
+.approach-heading { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--text); line-height: 1.2; margin-bottom: 6px; }
+.approach-heading em { font-style: italic; color: var(--ivory); }
+.approach-sub { font-size: 12px; color: var(--muted); font-weight: 300; margin-bottom: 28px; line-height: 1.6; }
+.approach-list { list-style: none; }
+.approach-list li { display: flex; align-items: flex-start; gap: 14px; padding: 13px 0; border-bottom: 0.5px solid var(--line); font-size: 13px; color: var(--text); font-weight: 300; line-height: 1.5; }
+.approach-list li:last-child { border-bottom: none; }
+.a-num { font-family: 'Cormorant Garamond', serif; font-size: 15px; color: var(--ivory); font-weight: 300; flex-shrink: 0; min-width: 18px; padding-top: 1px; }
+
+.cta-wrap { padding: 0 16px; }
+.cta-block { background: var(--text); border-radius: 20px; padding: 40px 28px 36px; text-align: center; position: relative; overflow: hidden; }
+.cta-block::before { content: 'IVORY'; position: absolute; right: -10px; top: 16px; font-family: 'Cormorant Garamond', serif; font-size: 80px; font-weight: 300; color: rgba(201,169,110,0.06); letter-spacing: 0.1em; pointer-events: none; line-height: 1; white-space: nowrap; }
+.cta-eyebrow { font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--ivory); margin-bottom: 14px; font-weight: 500; }
+.cta-heading { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 300; color: #F8F7F4; line-height: 1.2; margin-bottom: 8px; }
+.cta-heading em { font-style: italic; color: var(--ivory); }
+.cta-sub { font-size: 12px; color: rgba(248,247,244,0.45); line-height: 1.65; margin-bottom: 28px; font-weight: 300; }
+.cta-btn { display: block; width: 100%; background: var(--ivory); color: var(--text); border: none; border-radius: 10px; padding: 15px; margin-bottom: 8px; font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; cursor: pointer; text-decoration: none; transition: opacity 0.2s; }
+.cta-btn:hover { opacity: 0.85; }
+.cta-btn-ghost { display: block; width: 100%; background: transparent; color: rgba(248,247,244,0.5); border: 0.5px solid rgba(248,247,244,0.15); border-radius: 10px; padding: 14px; font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 400; cursor: pointer; text-decoration: none; transition: border-color 0.2s; }
+.cta-btn-ghost:hover { border-color: rgba(248,247,244,0.35); }
+
+.footer { padding: 40px 28px 0; text-align: center; }
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 10px; letter-spacing: 0.35em; color: var(--muted); text-transform: uppercase; font-weight: 300; }
+.footer-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--ivory); margin: 14px auto 0; opacity: 0.5; }
+</style>
+
+<div class="page">
+
+  <div class="hero">
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Ivory Event Bureau</span>
+      <div class="eyebrow-line"></div>
+    </div>
+    <h1 class="hero-title">Мы создаём<br>события, которые<br><em>остаются</em></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">Полный цикл организации — от первой идеи до финального результата. Смысл, структура, впечатление.</p>
+  </div>
+
+  <div class="services">
+
+    <div class="service-item">
+      <div class="service-inner">
+        <div class="service-row">
+          <div class="service-left">
+            <span class="service-num">01</span>
+            <p class="service-name">Передача ключей</p>
+            <p class="service-desc">Событие, которое формирует первое впечатление о проекте. Сценарий, визуал и ритм — уверенно и статусно.</p>
+            <span class="service-tag-pill">Корпоративный</span>
+          </div>
+          <span class="service-arrow">→</span>
+        </div>
+      </div>
+      <div class="carousel-wrap">
+        <div class="carousel-scroll" id="cs">
+          <img class="carousel-img" src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/photo_3_copy_zms3lf.jpg" alt="">
+          <img class="carousel-img" src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/photo_4_copy_ogrqbg.jpg" alt="">
+          <img class="carousel-img" src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/photo_2_copy_spravm.jpg" alt="">
+          <img class="carousel-img" src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/photo_4_hpq5df.jpg" alt="">
+          <img class="carousel-img" src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/photo_1_copy_zkzaza.jpg" alt="">
+        </div>
+        <div class="carousel-dots" id="dots">
+          <div class="dot active"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-inner">
+        <div class="service-row">
+          <div class="service-left">
+            <span class="service-num">02</span>
+            <p class="service-name">Закладка капсулы</p>
+            <p class="service-desc">Официальный старт проекта, который становится частью истории объекта.</p>
+            <span class="service-tag-pill">Корпоративный</span>
+          </div>
+          <span class="service-arrow">→</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-inner">
+        <div class="service-row">
+          <div class="service-left">
+            <span class="service-num">03</span>
+            <p class="service-name">Свадьбы</p>
+            <p class="service-desc">Индивидуальные события под характер пары. Стиль, эмоция и точность деталей.</p>
+            <span class="service-tag-pill">Частный</span>
+          </div>
+          <span class="service-arrow">→</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-inner">
+        <div class="service-row">
+          <div class="service-left">
+            <span class="service-num">04</span>
+            <p class="service-name">Кыз узатуу</p>
+            <p class="service-desc">Традиция с современной эстетикой. Смысл и культура в чистой, продуманной подаче.</p>
+            <span class="service-tag-pill">Частный</span>
+          </div>
+          <span class="service-arrow">→</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-inner">
+        <div class="service-row">
+          <div class="service-left">
+            <span class="service-num">05</span>
+            <p class="service-name">Тушоо той</p>
+            <p class="service-desc">Тёплый семейный день. Спокойная атмосфера, комфорт и ощущение момента.</p>
+            <span class="service-tag-pill">Частный</span>
+          </div>
+          <span class="service-arrow">→</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="approach">
+    <h2 class="approach-heading">Как мы<br><em>работаем</em></h2>
+    <p class="approach-sub">Полный контроль — от идеи до последней детали</p>
+    <ul class="approach-list">
+      <li><span class="a-num">I</span> Полный цикл от идеи до реализации</li>
+      <li><span class="a-num">II</span> Контроль всех этапов и деталей</li>
+      <li><span class="a-num">III</span> Сильная визуальная и сценарная часть</li>
+      <li><span class="a-num">IV</span> Частные и корпоративные проекты</li>
+      <li><span class="a-num">V</span> Впечатление, которое остаётся</li>
+    </ul>
+  </div>
+
+  <div class="cta-wrap">
+    <div class="cta-block">
+      <p class="cta-eyebrow">Обсудить проект</p>
+      <h2 class="cta-heading">Расскажите<br>вашу <em>задачу</em></h2>
+      <p class="cta-sub">Мы соберём концепцию и формат мероприятия под ваш запрос</p>
+      <a class="cta-btn" href="https://wa.me/" target="_blank">WhatsApp</a>
+      <a class="cta-btn-ghost" href="https://instagram.com/" target="_blank">Instagram / Direct</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p class="footer-logo">Ivory Event Bureau</p>
+    <div class="footer-dot"></div>
+  </div>
+
+</div>
+
+<script>
+const cs = document.getElementById('cs');
+const dots = document.querySelectorAll('.dot');
+cs.addEventListener('scroll', () => {
+  const idx = Math.round(cs.scrollLeft / 218);
+  dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+});
+</script>
