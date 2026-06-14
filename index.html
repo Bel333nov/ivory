@@ -193,7 +193,7 @@
 
   /* ===== INTRO ===== */
   .intro {
-    padding: 40px 28px 24px;
+    padding: 56px 28px 32px;
   }
 
   .intro p {
@@ -204,7 +204,7 @@
   }
 
   .intro p + p {
-    margin-top: 14px;
+    margin-top: 18px;
   }
 
   .intro strong {
@@ -214,7 +214,7 @@
 
   /* ===== SECTION LABEL ===== */
   .section-label {
-    padding: 8px 28px 18px;
+    padding: 16px 28px 56px;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -243,12 +243,12 @@
   }
 
   .format {
-    padding: 36px 0 40px;
+    padding: 48px 0 52px;
     border-bottom: 1px solid var(--line);
   }
 
   .format:first-child {
-    padding-top: 6px;
+    padding-top: 0;
   }
 
   .format:last-child {
@@ -260,7 +260,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 14px;
+    margin-bottom: 18px;
   }
 
   .format-icon {
@@ -281,7 +281,7 @@
     color: var(--charcoal-soft);
     font-weight: 300;
     max-width: 380px;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
   }
 
   .format-tag {
@@ -290,7 +290,7 @@
     font-style: italic;
     font-size: 15px;
     color: var(--charcoal);
-    margin-bottom: 26px;
+    margin-bottom: 32px;
   }
 
   /* ----- Photo carousel ----- */
@@ -300,12 +300,10 @@
 
   .carousel-track {
     display: flex;
-    gap: 10px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    padding: 0 28px;
   }
 
   .carousel-track::-webkit-scrollbar {
@@ -313,9 +311,8 @@
   }
 
   .carousel-slide {
-    flex: 0 0 85%;
+    flex: 0 0 100%;
     aspect-ratio: 16 / 9;
-    border-radius: 18px;
     scroll-snap-align: start;
     position: relative;
     overflow: hidden;
@@ -346,7 +343,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 14px;
+    margin-top: 20px;
   }
 
   .carousel-label {
@@ -401,7 +398,7 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    margin-top: 26px;
+    margin-top: 34px;
     padding: 15px 28px;
     border: 1px solid var(--charcoal);
     border-radius: 100px;
@@ -430,7 +427,7 @@
 
   /* ===== APPROACH ===== */
   .approach {
-    padding: 56px 28px 8px;
+    padding: 72px 28px 8px;
   }
 
   .approach-title {
@@ -438,7 +435,7 @@
     font-size: 32px;
     font-weight: 400;
     letter-spacing: 0.01em;
-    margin-bottom: 28px;
+    margin-bottom: 32px;
     line-height: 1.25;
   }
 
@@ -477,7 +474,7 @@
 
   /* ===== CONTACT ===== */
   .contact {
-    padding: 64px 28px 0;
+    padding: 80px 28px 0;
     text-align: center;
   }
 
@@ -550,7 +547,7 @@
 
   /* ===== FOOTER ===== */
   .footer {
-    padding: 48px 28px 40px;
+    padding: 64px 28px 48px;
     text-align: center;
   }
 
@@ -855,7 +852,7 @@
 
     const total = slides.length;
 
-    const getStep = () => slides[0].getBoundingClientRect().width + 10;
+    const getStep = () => slides[0].getBoundingClientRect().width;
 
     const update = () => {
       const step = getStep();
