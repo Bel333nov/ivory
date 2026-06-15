@@ -6,7 +6,7 @@
 <title>IVORY EVENT BUREAU</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   @font-face {
     font-family: 'Lighthaus';
@@ -19,11 +19,11 @@
   :root {
     --ivory: #F7F4EE;
     --ivory-deep: #EFEAE0;
-    --charcoal: #1E1C1A;
-    --charcoal-soft: #2C2926;
+    --charcoal: #585D3D;
+    --charcoal-soft: #6B7050;
     --champagne: #F1EAD9;
-    --line: rgba(30, 28, 26, 0.1);
-    --ink-soft: rgba(30, 28, 26, 0.45);
+    --line: rgba(88, 93, 61, 0.14);
+    --ink-soft: rgba(88, 93, 61, 0.5);
   }
 
   * {
@@ -71,7 +71,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 30%;
+    object-position: center 20%;
     z-index: 0;
   }
 
@@ -81,7 +81,7 @@
     left: 0;
     right: 0;
     height: 55%;
-    background: linear-gradient(to bottom, rgba(10, 12, 8, 0.55) 0%, rgba(10, 12, 8, 0.15) 100%);
+    background: linear-gradient(to bottom, rgba(88, 93, 61, 0.62) 0%, rgba(88, 93, 61, 0.18) 100%);
     z-index: 1;
   }
 
@@ -91,8 +91,25 @@
     left: 0;
     right: 0;
     height: 38%;
-    background: linear-gradient(to top, rgba(8, 10, 6, 0.7) 0%, rgba(8, 10, 6, 0) 100%);
+    background: linear-gradient(to top, rgba(88, 93, 61, 0.78) 0%, rgba(88, 93, 61, 0) 100%);
     z-index: 1;
+  }
+
+  .hero-logo {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    width: 62px;
+    height: 62px;
+    z-index: 3;
+  }
+
+  .hero-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 4px 14px rgba(88, 93, 61, 0.35));
   }
 
   .hero-content {
@@ -334,9 +351,12 @@
   }
 
   .carousel-label {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 13px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: var(--ink-soft);
   }
 
@@ -347,6 +367,7 @@
   }
 
   .carousel-count {
+    font-family: 'Montserrat', sans-serif;
     font-size: 11px;
     letter-spacing: 0.08em;
     color: var(--ink-soft);
@@ -399,14 +420,14 @@
   }
 
   .format-cta:hover {
-    box-shadow: 0 6px 20px rgba(30, 28, 26, 0.12);
+    box-shadow: 0 6px 20px rgba(88, 93, 61, 0.16);
   }
 
   .format-cta:active {
     background: var(--charcoal);
     color: var(--ivory);
     transform: scale(0.97);
-    box-shadow: 0 4px 14px rgba(30, 28, 26, 0.18);
+    box-shadow: 0 4px 14px rgba(88, 93, 61, 0.22);
   }
 
   .format-cta-arrow {
@@ -572,7 +593,7 @@
   .footer-divider {
     width: 36px;
     height: 1px;
-    background: rgba(30, 28, 26, 0.2);
+    background: rgba(88, 93, 61, 0.25);
     margin: 22px auto;
   }
 
@@ -608,9 +629,12 @@
 
   <!-- HERO -->
   <section class="hero">
-    <img class="hero-bg" src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781457441/__-_2026-06-14T231626.171_ilbziq.jpg" alt="Пара на закате на открытом поле — атмосфера события Ivory Event Bureau">
+    <img class="hero-bg" src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781530879/photo_5296696206966857736_y_jn4f5m.jpg" alt="Гендер-пати на открытой площадке — атмосфера события Ivory Event Bureau">
     <div class="hero-overlay-top"></div>
     <div class="hero-overlay-bottom"></div>
+    <div class="hero-logo">
+      <img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781531710/%D0%BB%D0%B2%D0%BB%D0%B2%D0%BB%D0%BB%D0%B2%D0%BB%D0%B2%D0%BB_i8044m.png" alt="Ivory Event Bureau">
+    </div>
     <div class="hero-content">
       <div class="hero-eyebrow">Ivory Event Bureau</div>
       <h1 class="hero-title">События<br>под <em>ключ</em></h1>
@@ -638,23 +662,88 @@
 
     <article class="format reveal">
       <div class="format-head">
-        <span class="format-icon">🔑</span>
-        <h3 class="format-title">Передача ключей</h3>
+        <span class="format-icon">💍</span>
+        <h3 class="format-title">Свадьбы</h3>
       </div>
-      <p class="format-text">Событие, которое знакомит людей с жилым комплексом впервые. Сценарий, визуальная подача и ритм — уверенно, статусно, завершённо.</p>
-      <span class="format-tag">— первое впечатление о проекте</span>
+      <p class="format-text">Индивидуальные события, собранные под характер пары. Без шаблонов — атмосфера со стилем, эмоцией и точностью деталей.</p>
+      <span class="format-tag">— отражение пары</span>
 
       <div class="format-carousel">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_3_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F_zms3lf.jpg" alt="Передача ключей — фото 1" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_4_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F_ogrqbg.jpg" alt="Передача ключей — фото 2" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_2_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F_spravm.jpg" alt="Передача ключей — фото 3" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_4_hpq5df.jpg" alt="Передача ключей — фото 4" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_1_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F_zkzaza.jpg" alt="Передача ключей — фото 5" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461963/ESWED-0077_resized_iaw2om.jpg" alt="Свадьба — фото 1" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461965/ESWED-0120_resized_vrqo4n.jpg" alt="Свадьба — фото 2" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461965/ESWED-0085_resized_cyvwlu.jpg" alt="Свадьба — фото 3" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461964/ESWED-0082_resized_t747r8.jpg" alt="Свадьба — фото 4" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461962/ESWED-0076_resized_mikt8k.jpg" alt="Свадьба — фото 5" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461965/ESWED-0124_resized_dsn7is.jpg" alt="Свадьба — фото 6" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461966/ESWED-0158_resized_vzr4b1.jpg" alt="Свадьба — фото 7" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461966/ESWED-0174_resized_fydqp1.jpg" alt="Свадьба — фото 8" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461968/ESWED-0221_resized_bxgmoc.jpg" alt="Свадьба — фото 9" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461968/ESWED-0195_resized_oxftn3.jpg" alt="Свадьба — фото 10" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461969/ESWED-0088_resized_ut9zym.jpg" alt="Свадьба — фото 11" loading="lazy"></div>
         </div>
       </div>
       <div class="carousel-controls">
-        <span class="carousel-label">Передача ключей</span>
+        <span class="carousel-label">Свадьбы</span>
+        <div class="carousel-nav">
+          <span class="carousel-count">01 / 11</span>
+          <button class="carousel-arrow prev" aria-label="Предыдущее фото">‹</button>
+          <button class="carousel-arrow next" aria-label="Следующее фото">›</button>
+        </div>
+      </div>
+
+      <a href="#contact" class="format-cta">Заказать услугу <span class="format-cta-arrow">→</span></a>
+    </article>
+
+    <article class="format reveal">
+      <div class="format-head">
+        <span class="format-icon">👶</span>
+        <h3 class="format-title">Тушоо той</h3>
+      </div>
+      <p class="format-text">Семейное событие, где важны тепло, комфорт и ощущение момента. Спокойная атмосфера — гостям легко и естественно.</p>
+      <span class="format-tag">— тёплый день без лишнего шума</span>
+
+      <div class="format-carousel">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462548/Aidan-048_resized_1_nhxc48.jpg" alt="Тушоо той — фото 1" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462548/Aidan-017_resized_ylakfw.jpg" alt="Тушоо той — фото 2" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462548/Aidan-050_resized_1_aszyhf.jpg" alt="Тушоо той — фото 3" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462549/Aidan-053_resized_w3qena.jpg" alt="Тушоо той — фото 4" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462549/Aidan-054_resized_dh7utw.jpg" alt="Тушоо той — фото 5" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462549/Aidan-269_resized_g0unyf.jpg" alt="Тушоо той — фото 6" loading="lazy"></div>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <span class="carousel-label">Тушоо той</span>
+        <div class="carousel-nav">
+          <span class="carousel-count">01 / 06</span>
+          <button class="carousel-arrow prev" aria-label="Предыдущее фото">‹</button>
+          <button class="carousel-arrow next" aria-label="Следующее фото">›</button>
+        </div>
+      </div>
+
+      <a href="#contact" class="format-cta">Заказать услугу <span class="format-cta-arrow">→</span></a>
+    </article>
+
+    <article class="format reveal">
+      <div class="format-head">
+        <span class="format-icon">🎈</span>
+        <h3 class="format-title">Гендер пати</h3>
+      </div>
+      <p class="format-text">Эмоциональный момент, где главные роли — у самих родителей. Продумываем сценарий, декор и визуальную подачу так, чтобы реакция была искренней, а кадры — красивыми.</p>
+      <span class="format-tag">— искренняя реакция в кадре</span>
+
+      <div class="format-carousel">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781531508/IMG_9871_swda06.jpg" alt="Гендер пати — фото 1" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781530879/photo_5296696206966857736_y_jn4f5m.jpg" alt="Гендер пати — фото 2" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/f_jpg/v1781531509/IMG_9876_ewk6ns.heic" alt="Гендер пати — фото 3" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781531510/IMG_9875_1_ldnazc.jpg" alt="Гендер пати — фото 4" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781531510/IMG_9873_cmmdxc.jpg" alt="Гендер пати — фото 5" loading="lazy"></div>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <span class="carousel-label">Гендер пати</span>
         <div class="carousel-nav">
           <span class="carousel-count">01 / 05</span>
           <button class="carousel-arrow prev" aria-label="Предыдущее фото">‹</button>
@@ -698,91 +787,25 @@
 
     <article class="format reveal">
       <div class="format-head">
-        <span class="format-icon">💍</span>
-        <h3 class="format-title">Свадьбы</h3>
+        <span class="format-icon">🔑</span>
+        <h3 class="format-title">Передача ключей</h3>
       </div>
-      <p class="format-text">Индивидуальные события, собранные под характер пары. Без шаблонов — атмосфера со стилем, эмоцией и точностью деталей.</p>
-      <span class="format-tag">— отражение пары</span>
+      <p class="format-text">Событие, которое знакомит людей с жилым комплексом впервые. Сценарий, визуальная подача и ритм — уверенно, статусно, завершённо.</p>
+      <span class="format-tag">— первое впечатление о проекте</span>
 
       <div class="format-carousel">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461963/ESWED-0077_resized_iaw2om.jpg" alt="Свадьба — фото 1" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461965/ESWED-0120_resized_vrqo4n.jpg" alt="Свадьба — фото 2" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461965/ESWED-0085_resized_cyvwlu.jpg" alt="Свадьба — фото 3" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461964/ESWED-0082_resized_t747r8.jpg" alt="Свадьба — фото 4" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461962/ESWED-0076_resized_mikt8k.jpg" alt="Свадьба — фото 5" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461965/ESWED-0124_resized_dsn7is.jpg" alt="Свадьба — фото 6" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461966/ESWED-0158_resized_vzr4b1.jpg" alt="Свадьба — фото 7" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461966/ESWED-0174_resized_fydqp1.jpg" alt="Свадьба — фото 8" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461968/ESWED-0221_resized_bxgmoc.jpg" alt="Свадьба — фото 9" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461968/ESWED-0195_resized_oxftn3.jpg" alt="Свадьба — фото 10" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461969/ESWED-0088_resized_ut9zym.jpg" alt="Свадьба — фото 11" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_3_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F_zms3lf.jpg" alt="Передача ключей — фото 1" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_4_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F_ogrqbg.jpg" alt="Передача ключей — фото 2" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_2_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F_spravm.jpg" alt="Передача ключей — фото 3" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_4_hpq5df.jpg" alt="Передача ключей — фото 4" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_1_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F_zkzaza.jpg" alt="Передача ключей — фото 5" loading="lazy"></div>
         </div>
       </div>
       <div class="carousel-controls">
-        <span class="carousel-label">Свадьбы</span>
+        <span class="carousel-label">Передача ключей</span>
         <div class="carousel-nav">
-          <span class="carousel-count">01 / 11</span>
-          <button class="carousel-arrow prev" aria-label="Предыдущее фото">‹</button>
-          <button class="carousel-arrow next" aria-label="Следующее фото">›</button>
-        </div>
-      </div>
-
-      <a href="#contact" class="format-cta">Заказать услугу <span class="format-cta-arrow">→</span></a>
-    </article>
-
-    <article class="format reveal">
-      <div class="format-head">
-        <span class="format-icon">👰</span>
-        <h3 class="format-title">Кыз узатуу</h3>
-      </div>
-      <p class="format-text">Традиция, аккуратно адаптированная под современную эстетику. Смысл и культура — с визуальной чистотой, сценарием и ритмом.</p>
-      <span class="format-tag">— традиция + современная подача</span>
-
-      <div class="format-carousel">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462788/ESWED-0124_resized_oii127.jpg" alt="Кыз узатуу — фото 1" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462787/ESWED-0366_resized_dqvtcw.jpg" alt="Кыз узатуу — фото 2" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462787/ESWED-0250_resized_nuy6xj.jpg" alt="Кыз узатуу — фото 3" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462787/ESWED-0251_resized_g71dh0.jpg" alt="Кыз узатуу — фото 4" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462786/ESWED-0305_resized_pir6mv.jpg" alt="Кыз узатуу — фото 5" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462786/ESWED-0358_resized_nadhtf.jpg" alt="Кыз узатуу — фото 6" loading="lazy"></div>
-        </div>
-      </div>
-      <div class="carousel-controls">
-        <span class="carousel-label">Кыз узатуу</span>
-        <div class="carousel-nav">
-          <span class="carousel-count">01 / 06</span>
-          <button class="carousel-arrow prev" aria-label="Предыдущее фото">‹</button>
-          <button class="carousel-arrow next" aria-label="Следующее фото">›</button>
-        </div>
-      </div>
-
-      <a href="#contact" class="format-cta">Заказать услугу <span class="format-cta-arrow">→</span></a>
-    </article>
-
-    <article class="format reveal">
-      <div class="format-head">
-        <span class="format-icon">👶</span>
-        <h3 class="format-title">Тушоо той</h3>
-      </div>
-      <p class="format-text">Семейное событие, где важны тепло, комфорт и ощущение момента. Спокойная атмосфера — гостям легко и естественно.</p>
-      <span class="format-tag">— тёплый день без лишнего шума</span>
-
-      <div class="format-carousel">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462548/Aidan-048_resized_1_nhxc48.jpg" alt="Тушоо той — фото 1" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462548/Aidan-017_resized_ylakfw.jpg" alt="Тушоо той — фото 2" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462548/Aidan-050_resized_1_aszyhf.jpg" alt="Тушоо той — фото 3" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462549/Aidan-053_resized_w3qena.jpg" alt="Тушоо той — фото 4" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462549/Aidan-054_resized_dh7utw.jpg" alt="Тушоо той — фото 5" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462549/Aidan-269_resized_g0unyf.jpg" alt="Тушоо той — фото 6" loading="lazy"></div>
-        </div>
-      </div>
-      <div class="carousel-controls">
-        <span class="carousel-label">Тушоо той</span>
-        <div class="carousel-nav">
-          <span class="carousel-count">01 / 06</span>
+          <span class="carousel-count">01 / 05</span>
           <button class="carousel-arrow prev" aria-label="Предыдущее фото">‹</button>
           <button class="carousel-arrow next" aria-label="Следующее фото">›</button>
         </div>
