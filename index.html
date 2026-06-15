@@ -54,54 +54,20 @@
 
   /* ===== HERO ===== */
   .hero {
-    position: relative;
-    height: 100vh;
-    min-height: 640px;
-    max-height: 900px;
+    background: var(--charcoal);
     color: var(--ivory);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
   }
 
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 20%;
-    z-index: 0;
-  }
-
-  .hero-overlay-top {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 55%;
-    background: linear-gradient(to bottom, rgba(88, 93, 61, 0.62) 0%, rgba(88, 93, 61, 0.18) 100%);
-    z-index: 1;
-  }
-
-  .hero-overlay-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 38%;
-    background: linear-gradient(to top, rgba(88, 93, 61, 0.78) 0%, rgba(88, 93, 61, 0) 100%);
-    z-index: 1;
+  .hero-top {
+    padding: 56px 28px 40px;
   }
 
   .hero-logo {
-    position: absolute;
-    top: 24px;
-    left: 24px;
-    width: 62px;
-    height: 62px;
-    z-index: 3;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.1s;
   }
 
   .hero-logo img {
@@ -109,34 +75,15 @@
     height: 100%;
     object-fit: contain;
     display: block;
-    filter: drop-shadow(0 4px 14px rgba(88, 93, 61, 0.35));
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    padding: 56px 28px 0;
-  }
-
-  .hero-eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--champagne);
-    font-weight: 500;
-    margin-bottom: 22px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.1s;
   }
 
   .hero-title {
     font-family: 'Lighthaus', 'Cormorant Garamond', serif;
     font-weight: 400;
-    font-size: 54px;
+    font-size: 50px;
     line-height: 1.1;
     letter-spacing: 0.01em;
     margin-bottom: 8px;
-    text-shadow: 0 2px 24px rgba(0,0,0,0.35);
     opacity: 0;
     animation: fadeUp 0.8s ease forwards 0.25s;
   }
@@ -149,58 +96,39 @@
   .hero-sub {
     font-size: 14px;
     line-height: 1.7;
-    color: rgba(247, 244, 238, 0.78);
+    color: rgba(247, 244, 238, 0.72);
     font-weight: 300;
-    max-width: 300px;
+    max-width: 320px;
     margin-top: 18px;
-    text-shadow: 0 1px 12px rgba(0,0,0,0.3);
     opacity: 0;
     animation: fadeUp 0.8s ease forwards 0.4s;
   }
 
-  .hero-bottom {
+  .hero-photo {
     position: relative;
-    z-index: 2;
-    margin-top: auto;
-    padding: 0 28px 36px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.55s;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+  }
+
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 8%;
+    display: block;
   }
 
   .hero-caption {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 15px;
-    color: rgba(247, 244, 238, 0.85);
-    text-shadow: 0 1px 10px rgba(0,0,0,0.35);
-  }
-
-  .hero-scroll {
-    width: 28px;
-    height: 44px;
-    border: 1px solid rgba(247, 244, 238, 0.45);
-    border-radius: 16px;
-    position: relative;
-    flex-shrink: 0;
-  }
-
-  .hero-scroll::before {
-    content: '';
     position: absolute;
-    top: 8px;
-    left: 50%;
-    width: 3px;
-    height: 8px;
-    background: var(--champagne);
-  }
-
-  @keyframes scrollDot {
-    0% { opacity: 1; top: 8px; }
-    50% { opacity: 0.3; top: 20px; }
-    100% { opacity: 1; top: 8px; }
+    left: 28px;
+    bottom: 22px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--ivory);
+    text-shadow: 0 1px 10px rgba(88, 93, 61, 0.5);
   }
 
   @keyframes fadeUp {
@@ -446,6 +374,50 @@
     50% { transform: translateX(5px); }
   }
 
+  /* ----- Olive accent blocks ----- */
+  .format--olive {
+    background: var(--charcoal);
+    margin: 0 -28px;
+    padding: 56px 28px 64px;
+    border-bottom: none;
+  }
+
+  .format--olive .format-title {
+    color: var(--ivory);
+  }
+
+  .format--olive .format-text {
+    color: rgba(247, 244, 238, 0.72);
+  }
+
+  .format--olive .format-tag {
+    color: var(--champagne);
+  }
+
+  .format--olive .carousel-label,
+  .format--olive .carousel-count {
+    color: rgba(247, 244, 238, 0.55);
+  }
+
+  .format--olive .carousel-arrow {
+    color: var(--ivory);
+  }
+
+  .format--olive .format-cta {
+    border-color: var(--ivory);
+    color: var(--ivory);
+  }
+
+  .format--olive .format-cta:hover {
+    box-shadow: 0 6px 20px rgba(20, 22, 14, 0.25);
+  }
+
+  .format--olive .format-cta:active {
+    background: var(--ivory);
+    color: var(--charcoal);
+    box-shadow: 0 4px 14px rgba(20, 22, 14, 0.3);
+  }
+
   /* ===== APPROACH ===== */
   .approach {
     padding: 72px 28px 8px;
@@ -610,7 +582,7 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .reveal, .hero-eyebrow, .hero-title, .hero-sub, .format-cta-arrow {
+    .reveal, .hero-logo, .hero-title, .hero-sub, .format-cta-arrow {
       animation: none !important;
       transition: none !important;
       opacity: 1 !important;
@@ -629,20 +601,16 @@
 
   <!-- HERO -->
   <section class="hero">
-    <img class="hero-bg" src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781530879/photo_5296696206966857736_y_jn4f5m.jpg" alt="Гендер-пати на открытой площадке — атмосфера события Ivory Event Bureau">
-    <div class="hero-overlay-top"></div>
-    <div class="hero-overlay-bottom"></div>
-    <div class="hero-logo">
-      <img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781531710/%D0%BB%D0%B2%D0%BB%D0%B2%D0%BB%D0%BB%D0%B2%D0%BB%D0%B2%D0%BB_i8044m.png" alt="Ivory Event Bureau">
-    </div>
-    <div class="hero-content">
-      <div class="hero-eyebrow">Ivory Event Bureau</div>
+    <div class="hero-top">
+      <div class="hero-logo">
+        <img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781531710/%D0%BB%D0%B2%D0%BB%D0%B2%D0%BB%D0%BB%D0%B2%D0%BB%D0%B2%D0%BB_i8044m.png" alt="Ivory Event Bureau">
+      </div>
       <h1 class="hero-title">События<br>под <em>ключ</em></h1>
       <p class="hero-sub">Полный цикл организации — от первой идеи до впечатления, которое остаётся надолго.</p>
     </div>
-    <div class="hero-bottom">
+    <div class="hero-photo">
+      <img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781530879/photo_5296696206966857736_y_jn4f5m.jpg" alt="Гендер-пати на открытой площадке — атмосфера события Ivory Event Bureau">
       <span class="hero-caption">Каждая история — своя</span>
-      <div class="hero-scroll"></div>
     </div>
   </section>
 
@@ -695,7 +663,7 @@
       <a href="#contact" class="format-cta">Заказать услугу <span class="format-cta-arrow">→</span></a>
     </article>
 
-    <article class="format reveal">
+    <article class="format format--olive reveal">
       <div class="format-head">
         <span class="format-icon">👶</span>
         <h3 class="format-title">Тушоо той</h3>
@@ -754,7 +722,7 @@
       <a href="#contact" class="format-cta">Заказать услугу <span class="format-cta-arrow">→</span></a>
     </article>
 
-    <article class="format reveal">
+    <article class="format format--olive reveal">
       <div class="format-head">
         <span class="format-icon">🕊</span>
         <h3 class="format-title">Закладка капсулы</h3>
