@@ -54,81 +54,80 @@
 
   /* ===== HERO ===== */
   .hero {
-    background: var(--charcoal);
-    color: var(--ivory);
+    position: relative;
+    min-height: 100vh;
+    max-height: 920px;
+    overflow: hidden;
+    color: var(--charcoal);
   }
 
-  .hero-top {
-    padding: 56px 28px 40px;
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    z-index: 0;
   }
 
-  .hero-logo {
-    width: 64px;
-    height: 64px;
-    margin-bottom: 32px;
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 32px 28px 0;
+  }
+
+  .hero-mark {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 36px;
     opacity: 0;
     animation: fadeUp 0.8s ease forwards 0.1s;
   }
 
-  .hero-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
+  .hero-mark-main {
+    font-family: 'Lighthaus', 'Cormorant Garamond', serif;
+    font-size: 21px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+  }
+
+  .hero-mark-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    margin-top: 2px;
+    color: var(--charcoal-soft);
   }
 
   .hero-title {
     font-family: 'Lighthaus', 'Cormorant Garamond', serif;
     font-weight: 400;
-    font-size: 50px;
-    line-height: 1.1;
-    letter-spacing: 0.01em;
-    margin-bottom: 8px;
+    font-size: 80px;
+    line-height: 0.95;
+    letter-spacing: -0.01em;
     opacity: 0;
     animation: fadeUp 0.8s ease forwards 0.25s;
   }
 
-  .hero-title em {
-    font-style: normal;
-    color: var(--champagne);
-  }
-
-  .hero-sub {
-    font-size: 14px;
-    line-height: 1.7;
-    color: rgba(247, 244, 238, 0.72);
-    font-weight: 300;
-    max-width: 320px;
-    margin-top: 18px;
+  .hero-script {
+    display: block;
+    width: 78%;
+    margin: -8px 0 0 -6px;
     opacity: 0;
     animation: fadeUp 0.8s ease forwards 0.4s;
   }
 
-  .hero-photo {
-    position: relative;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-  }
-
-  .hero-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 8%;
-    display: block;
-  }
-
-  .hero-caption {
-    position: absolute;
-    left: 28px;
-    bottom: 22px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--ivory);
-    text-shadow: 0 1px 10px rgba(88, 93, 61, 0.5);
+  .hero-sub {
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--charcoal-soft);
+    font-weight: 400;
+    max-width: 220px;
+    margin: 4px 0 0 auto;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.55s;
   }
 
   @keyframes fadeUp {
@@ -582,7 +581,7 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .reveal, .hero-logo, .hero-title, .hero-sub, .format-cta-arrow {
+    .reveal, .hero-mark, .hero-title, .hero-script, .hero-sub, .format-cta-arrow {
       animation: none !important;
       transition: none !important;
       opacity: 1 !important;
@@ -601,16 +600,15 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-top">
-      <div class="hero-logo">
-        <img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781531710/%D0%BB%D0%B2%D0%BB%D0%B2%D0%BB%D0%BB%D0%B2%D0%BB%D0%B2%D0%BB_i8044m.png" alt="Ivory Event Bureau">
+    <img class="hero-bg" src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781534450/sdjkaef_rhbkrt.jpg" alt="Гендер-пати на открытой площадке — атмосфера события Ivory Event Bureau">
+    <div class="hero-content">
+      <div class="hero-mark">
+        <span class="hero-mark-main">IVORY</span>
+        <span class="hero-mark-sub">event bureau</span>
       </div>
-      <h1 class="hero-title">События<br>под <em>ключ</em></h1>
+      <h1 class="hero-title">События</h1>
+      <img class="hero-script" src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781534352/kjds_g76tja.png" alt="под ключ">
       <p class="hero-sub">Полный цикл организации — от первой идеи до впечатления, которое остаётся надолго.</p>
-    </div>
-    <div class="hero-photo">
-      <img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781530879/photo_5296696206966857736_y_jn4f5m.jpg" alt="Гендер-пати на открытой площадке — атмосфера события Ivory Event Bureau">
-      <span class="hero-caption">Каждая история — своя</span>
     </div>
   </section>
 
