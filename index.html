@@ -6,7 +6,8 @@
 <title>IVORY EVENT BUREAU</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+
 <style>
   @font-face {
     font-family: 'Lighthaus';
@@ -17,30 +18,26 @@
   }
 
   :root {
-    --ivory: #F7F4EE;
-    --ivory-deep: #EFEAE0;
-    --charcoal: #585D3D;
-    --charcoal-soft: #6B7050;
-    --champagne: #F1EAD9;
-    --line: rgba(88, 93, 61, 0.14);
-    --ink-soft: rgba(88, 93, 61, 0.5);
+    --black: #0C0C0A;
+    --black-mid: #131310;
+    --black-soft: #1A1A16;
+    --cream: #F0EBE1;
+    --cream-dim: rgba(240, 235, 225, 0.55);
+    --cream-faint: rgba(240, 235, 225, 0.2);
+    --gold: #C8A96E;
+    --gold-dim: rgba(200, 169, 110, 0.35);
+    --line: rgba(240, 235, 225, 0.1);
   }
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-  }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
-  html {
-    scroll-behavior: smooth;
-  }
+  html { scroll-behavior: smooth; }
 
   body {
-    background: var(--ivory);
-    color: var(--charcoal);
-    font-family: 'Inter', sans-serif;
+    background: var(--black);
+    color: var(--cream);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
@@ -55,10 +52,12 @@
   /* ===== HERO ===== */
   .hero {
     position: relative;
-    min-height: 100vh;
-    max-height: 920px;
+    height: 100svh;
+    min-height: 640px;
     overflow: hidden;
-    color: var(--charcoal);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .hero-bg {
@@ -69,105 +68,152 @@
     object-fit: cover;
     object-position: center top;
     z-index: 0;
+    filter: brightness(0.38);
   }
 
-  .hero-content {
-    position: relative;
+  /* Subtle vignette */
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(12,12,10,0.15) 0%,
+      transparent 30%,
+      transparent 55%,
+      rgba(12,12,10,0.7) 100%
+    );
     z-index: 1;
-    padding: 32px 28px 0;
   }
 
-  .hero-mark {
+  .hero-top {
+    position: relative;
+    z-index: 2;
+    padding: 36px 28px 0;
     display: flex;
-    flex-direction: column;
-    margin-bottom: 36px;
+    justify-content: space-between;
+    align-items: flex-start;
     opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.1s;
+    animation: fadeIn 1s ease forwards 0.1s;
   }
 
   .hero-mark-main {
-    font-family: 'Lighthaus', 'Cormorant Garamond', serif;
-    font-size: 21px;
-    font-weight: 400;
-    letter-spacing: 0.2em;
+    font-family: 'Lighthaus', serif;
+    font-size: 15px;
+    letter-spacing: 0.3em;
+    color: var(--cream);
+    text-transform: uppercase;
   }
 
   .hero-mark-sub {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+    margin-top: 4px;
+  }
+
+  .hero-tag {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+    text-align: right;
+    padding-top: 2px;
+  }
+
+  .hero-bottom {
+    position: relative;
+    z-index: 2;
+    padding: 0 28px 44px;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards 0.4s;
+  }
+
+  .hero-eyebrow {
+    font-family: 'EB Garamond', serif;
     font-style: italic;
-    font-size: 13px;
-    letter-spacing: 0.04em;
-    margin-top: 2px;
-    color: var(--charcoal-soft);
+    font-size: 15px;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+    margin-bottom: 14px;
   }
 
   .hero-title {
-    font-family: 'Lighthaus', 'Cormorant Garamond', serif;
+    font-family: 'Playfair Display', serif;
     font-weight: 400;
-    font-size: 54px;
-    line-height: 0.95;
+    font-size: 58px;
+    line-height: 0.92;
     letter-spacing: -0.01em;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.25s;
+    color: var(--cream);
   }
 
-  .hero-script {
-    display: block;
-    font-family: 'Lighthaus', 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: 48px;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-    color: var(--charcoal);
-    margin: 6px 0 0 0;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.4s;
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--gold-dim);
+    margin: 22px 0 18px;
   }
 
   .hero-sub {
-    font-size: 13.5px;
-    line-height: 1.65;
-    color: var(--charcoal-soft);
-    font-weight: 400;
-    max-width: 220px;
-    margin: 20px 0 0 auto;
-    text-shadow: 0 1px 16px rgba(247, 244, 238, 0.7);
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.55s;
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(14px); }
-    to { opacity: 1; transform: translateY(0); }
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--cream-dim);
+    font-weight: 300;
+    max-width: 240px;
+    letter-spacing: 0.02em;
   }
 
   /* ===== INTRO ===== */
   .intro {
-    padding: 56px 28px 32px;
+    padding: 72px 28px 56px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .intro-eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
   }
 
   .intro p {
-    font-size: 14.5px;
-    line-height: 1.85;
-    color: var(--charcoal-soft);
-    font-weight: 300;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    line-height: 1.55;
+    font-weight: 400;
+    color: var(--cream);
+    letter-spacing: 0.01em;
   }
 
   .intro p + p {
-    margin-top: 18px;
-  }
-
-  .intro strong {
-    font-weight: 500;
-    color: var(--charcoal);
+    margin-top: 20px;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    font-weight: 300;
+    color: var(--cream-dim);
+    letter-spacing: 0.02em;
   }
 
   /* ===== SECTION LABEL ===== */
   .section-label {
-    padding: 16px 28px 56px;
+    padding: 56px 28px 48px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
   }
 
   .section-label .line {
@@ -177,75 +223,74 @@
   }
 
   .section-label span {
-    font-size: 11px;
-    letter-spacing: 0.24em;
+    font-size: 10px;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: var(--ink-soft);
-    font-weight: 500;
+    color: var(--cream-dim);
+    font-weight: 300;
     white-space: nowrap;
   }
 
   /* ===== FORMATS ===== */
   .events {
-    padding: 0 28px;
-    display: flex;
-    flex-direction: column;
+    padding: 0;
   }
 
   .format {
-    padding: 56px 0 64px;
-    border-bottom: 1px solid var(--line);
+    padding: 56px 28px 64px;
+    border-top: 1px solid var(--line);
   }
 
   .format:first-child {
-    padding-top: 0;
+    border-top: none;
   }
 
-  .format:last-child {
-    border-bottom: none;
-    padding-bottom: 8px;
+  .format--dark {
+    background: var(--black-soft);
   }
 
-  .format-head {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 18px;
-  }
-
-  .format-icon {
-    font-size: 18px;
-    line-height: 1;
+  .format-number {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    margin-bottom: 20px;
   }
 
   .format-title {
-    font-family: 'Lighthaus', 'Cormorant Garamond', serif;
-    font-size: 27px;
+    font-family: 'Playfair Display', serif;
     font-weight: 400;
-    letter-spacing: 0.01em;
+    font-size: 36px;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--cream);
+    margin-bottom: 20px;
   }
 
   .format-text {
     font-size: 13.5px;
-    line-height: 1.75;
-    color: var(--charcoal-soft);
+    line-height: 1.78;
+    color: var(--cream-dim);
     font-weight: 300;
-    max-width: 380px;
-    margin-bottom: 16px;
+    max-width: 340px;
+    margin-bottom: 10px;
+    letter-spacing: 0.02em;
   }
 
   .format-tag {
     display: block;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'EB Garamond', serif;
     font-style: italic;
-    font-size: 15px;
-    color: var(--charcoal);
-    margin-bottom: 32px;
+    font-size: 17px;
+    color: var(--gold);
+    letter-spacing: 0.03em;
+    margin-bottom: 36px;
   }
 
-  /* ----- Photo carousel ----- */
+  /* Carousel */
   .format-carousel {
-    border-radius: 18px;
+    border-radius: 4px;
     overflow: hidden;
   }
 
@@ -257,15 +302,12 @@
     scrollbar-width: none;
   }
 
-  .carousel-track::-webkit-scrollbar {
-    display: none;
-  }
+  .carousel-track::-webkit-scrollbar { display: none; }
 
   .carousel-slide {
     flex: 0 0 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16 / 10;
     scroll-snap-align: start;
-    position: relative;
     overflow: hidden;
   }
 
@@ -274,167 +316,126 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    filter: brightness(0.9);
+    transition: filter 0.4s ease;
   }
 
   .carousel-controls {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 16px;
   }
 
   .carousel-label {
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 11px;
-    letter-spacing: 0.08em;
+    font-size: 10px;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--ink-soft);
+    color: var(--cream-faint);
+    font-weight: 300;
   }
 
   .carousel-nav {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 20px;
   }
 
   .carousel-count {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    color: var(--ink-soft);
-    font-weight: 500;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--cream-dim);
+    letter-spacing: 0.05em;
     font-variant-numeric: tabular-nums;
   }
 
   .carousel-arrow {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     margin: -8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    color: var(--charcoal);
+    font-family: 'EB Garamond', serif;
+    font-size: 24px;
+    color: var(--cream);
     background: none;
     border: none;
     padding: 0;
     cursor: pointer;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.2s;
+    line-height: 1;
   }
 
-  .carousel-arrow:active {
-    opacity: 0.4;
-  }
+  .carousel-arrow:active { opacity: 0.4; }
+  .carousel-arrow:disabled { opacity: 0.18; cursor: default; }
 
-  .carousel-arrow:disabled {
-    opacity: 0.2;
-    cursor: default;
-  }
-
-  /* ----- Order CTA ----- */
+  /* CTA */
   .format-cta {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    margin-top: 34px;
-    padding: 16px 30px;
-    border: 1px solid var(--charcoal);
-    border-radius: 100px;
-    font-size: 12px;
-    letter-spacing: 0.14em;
+    gap: 12px;
+    margin-top: 36px;
+    padding: 15px 32px;
+    border: 1px solid rgba(200, 169, 110, 0.45);
+    border-radius: 2px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    font-weight: 600;
-    color: var(--charcoal);
+    font-weight: 400;
+    color: var(--gold);
     text-decoration: none;
-    transition: background 0.3s ease, color 0.3s ease, transform 0.15s ease, box-shadow 0.3s ease;
+    transition: background 0.35s ease, border-color 0.35s ease, color 0.35s ease;
+    font-family: 'Jost', sans-serif;
   }
 
   .format-cta:hover {
-    box-shadow: 0 6px 20px rgba(88, 93, 61, 0.16);
+    background: var(--gold);
+    color: var(--black);
+    border-color: var(--gold);
   }
 
   .format-cta:active {
-    background: var(--charcoal);
-    color: var(--ivory);
-    transform: scale(0.97);
-    box-shadow: 0 4px 14px rgba(88, 93, 61, 0.22);
+    opacity: 0.75;
+    transform: scale(0.98);
   }
 
   .format-cta-arrow {
+    font-size: 14px;
+    animation: arrowNudge 2.6s ease-in-out infinite;
     display: inline-block;
-    transition: transform 0.2s ease;
-    animation: ctaArrowNudge 2.4s ease-in-out infinite;
   }
 
-  .format-cta:active .format-cta-arrow {
-    animation: none;
-    transform: translateX(4px);
-  }
-
-  @keyframes ctaArrowNudge {
+  @keyframes arrowNudge {
     0%, 100% { transform: translateX(0); }
     50% { transform: translateX(5px); }
   }
 
-  /* ----- Olive accent blocks ----- */
-  .format--olive {
-    background: var(--charcoal);
-    margin: 0 -28px;
-    padding: 56px 28px 64px;
-    border-bottom: none;
-  }
-
-  .format--olive .format-title {
-    color: var(--ivory);
-  }
-
-  .format--olive .format-text {
-    color: rgba(247, 244, 238, 0.72);
-  }
-
-  .format--olive .format-tag {
-    color: var(--champagne);
-  }
-
-  .format--olive .carousel-label,
-  .format--olive .carousel-count {
-    color: rgba(247, 244, 238, 0.55);
-  }
-
-  .format--olive .carousel-arrow {
-    color: var(--ivory);
-  }
-
-  .format--olive .format-cta {
-    border-color: var(--ivory);
-    color: var(--ivory);
-  }
-
-  .format--olive .format-cta:hover {
-    box-shadow: 0 6px 20px rgba(20, 22, 14, 0.25);
-  }
-
-  .format--olive .format-cta:active {
-    background: var(--ivory);
-    color: var(--charcoal);
-    box-shadow: 0 4px 14px rgba(20, 22, 14, 0.3);
-  }
-
   /* ===== APPROACH ===== */
   .approach {
-    padding: 72px 28px 8px;
+    padding: 72px 28px 72px;
+    background: var(--black-mid);
+  }
+
+  .approach-eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
   }
 
   .approach-title {
-    font-family: 'Lighthaus', 'Cormorant Garamond', serif;
-    font-size: 32px;
+    font-family: 'Playfair Display', serif;
     font-weight: 400;
-    letter-spacing: 0.01em;
-    margin-bottom: 32px;
-    line-height: 1.25;
+    font-size: 36px;
+    line-height: 1.2;
+    color: var(--cream);
+    margin-bottom: 48px;
+    letter-spacing: -0.01em;
   }
 
   .approach-list {
@@ -444,30 +445,30 @@
 
   .approach-item {
     display: flex;
-    gap: 16px;
-    padding: 18px 0;
+    gap: 20px;
+    padding: 20px 0;
     border-bottom: 1px solid var(--line);
     align-items: flex-start;
   }
 
-  .approach-item:last-child {
-    border-bottom: none;
-  }
+  .approach-item:last-child { border-bottom: none; }
 
-  .approach-mark {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--charcoal);
-    margin-top: 8px;
+  .approach-num {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--gold);
     flex-shrink: 0;
+    padding-top: 1px;
+    width: 18px;
   }
 
   .approach-text {
     font-size: 14px;
-    line-height: 1.6;
-    font-weight: 400;
-    color: var(--charcoal);
+    line-height: 1.65;
+    font-weight: 300;
+    color: var(--cream);
+    letter-spacing: 0.01em;
   }
 
   /* ===== CONTACT ===== */
@@ -477,36 +478,44 @@
   }
 
   .contact-eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.28em;
+    font-size: 10px;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: var(--ink-soft);
-    font-weight: 500;
-    margin-bottom: 18px;
+    color: var(--gold);
+    font-weight: 200;
+    margin-bottom: 22px;
+    font-family: 'Jost', sans-serif;
   }
 
   .contact-title {
-    font-family: 'Lighthaus', 'Cormorant Garamond', serif;
-    font-size: 32px;
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
     font-weight: 400;
-    letter-spacing: 0.01em;
-    line-height: 1.3;
-    margin-bottom: 14px;
+    line-height: 1.2;
+    color: var(--cream);
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .contact-title em {
+    font-style: italic;
+    color: var(--gold);
   }
 
   .contact-text {
     font-size: 14px;
-    line-height: 1.7;
-    color: var(--charcoal-soft);
+    line-height: 1.75;
+    color: var(--cream-dim);
     font-weight: 300;
-    max-width: 300px;
-    margin: 0 auto 32px;
+    max-width: 280px;
+    margin: 0 auto 40px;
+    letter-spacing: 0.02em;
   }
 
   .contact-buttons {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
   }
 
   .contact-btn {
@@ -515,70 +524,89 @@
     justify-content: center;
     gap: 10px;
     padding: 18px 24px;
-    border-radius: 14px;
-    font-size: 14.5px;
-    font-weight: 500;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
     text-decoration: none;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    font-family: 'Jost', sans-serif;
   }
 
-  .contact-btn:active {
-    transform: scale(0.97);
-    opacity: 0.9;
-  }
+  .contact-btn:active { transform: scale(0.97); opacity: 0.85; }
 
   .contact-btn.primary {
-    background: var(--charcoal);
-    color: var(--ivory);
+    background: var(--gold);
+    color: var(--black);
+    border: 1px solid var(--gold);
+  }
+
+  .contact-btn.primary:hover {
+    background: transparent;
+    color: var(--gold);
   }
 
   .contact-btn.secondary {
     background: transparent;
-    color: var(--charcoal);
-    border: 1px solid var(--charcoal);
+    color: var(--cream-dim);
+    border: 1px solid var(--line);
   }
 
-  .contact-btn .icon {
-    font-size: 17px;
+  .contact-btn.secondary:hover {
+    border-color: rgba(200, 169, 110, 0.3);
+    color: var(--gold);
   }
+
+  .contact-btn .icon { font-size: 16px; }
 
   /* ===== FOOTER ===== */
   .footer {
-    padding: 64px 28px 48px;
+    padding: 72px 28px 52px;
     text-align: center;
+    border-top: 1px solid var(--line);
+    margin-top: 80px;
   }
 
   .footer-mark {
-    font-family: 'Lighthaus', 'Cormorant Garamond', serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    letter-spacing: 0.04em;
-    color: var(--charcoal);
-    margin-bottom: 8px;
+    font-family: 'Lighthaus', serif;
+    font-size: 28px;
+    letter-spacing: 0.12em;
+    color: var(--cream);
+    margin-bottom: 6px;
   }
 
   .footer-tag {
-    font-size: 10.5px;
-    letter-spacing: 0.22em;
+    font-size: 9px;
+    letter-spacing: 0.38em;
     text-transform: uppercase;
-    color: var(--charcoal-soft);
-    font-weight: 500;
+    color: var(--cream-faint);
+    font-weight: 300;
+    margin-bottom: 28px;
   }
 
-  .footer-divider {
-    width: 36px;
-    height: 1px;
-    background: rgba(88, 93, 61, 0.25);
-    margin: 22px auto;
+  .footer-rule {
+    width: 1px;
+    height: 40px;
+    background: var(--gold-dim);
+    margin: 0 auto;
   }
 
-  /* Reveal on scroll */
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
   .reveal {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transform: translateY(22px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
   }
 
   .reveal.visible {
@@ -587,7 +615,7 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .reveal, .hero-mark, .hero-title, .hero-script, .hero-sub, .format-cta-arrow {
+    .reveal, .hero-top, .hero-bottom, .format-cta-arrow {
       animation: none !important;
       transition: none !important;
       opacity: 1 !important;
@@ -596,7 +624,7 @@
   }
 
   a:focus-visible, .carousel-arrow:focus-visible {
-    outline: 2px solid var(--charcoal);
+    outline: 1px solid var(--gold);
     outline-offset: 3px;
   }
 </style>
@@ -606,210 +634,205 @@
 
   <!-- HERO -->
   <section class="hero">
-    <img class="hero-bg" src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781534450/sdjkaef_rhbkrt.jpg" alt="Гендер-пати на открытой площадке — атмосфера события Ivory Event Bureau">
-    <div class="hero-content">
-      <div class="hero-mark">
-        <span class="hero-mark-main">IVORY</span>
-        <span class="hero-mark-sub">event bureau</span>
+    <img class="hero-bg" src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781534450/sdjkaef_rhbkrt.jpg" alt="Ivory Event Bureau">
+
+    <div class="hero-top">
+      <div>
+        <div class="hero-mark-main">Ivory</div>
+        <div class="hero-mark-sub">Event Bureau</div>
       </div>
-      <h1 class="hero-title">События</h1>
-      <span class="hero-script">под ключ</span>
-      <p class="hero-sub">Полный цикл организации — от первой идеи до впечатления, которое остаётся надолго.</p>
+      <div class="hero-tag">Bishkek<br>Kyrgyzstan</div>
+    </div>
+
+    <div class="hero-bottom">
+      <div class="hero-eyebrow">полный цикл организации</div>
+      <h1 class="hero-title">События<br><em>под ключ</em></h1>
+      <div class="hero-divider"></div>
+      <p class="hero-sub">От первой идеи до впечатления, которое остаётся надолго.</p>
     </div>
   </section>
 
   <!-- INTRO -->
   <section class="intro reveal">
-    <p>Мы не просто «делаем мероприятия». Мы выстраиваем события так, чтобы у них был <strong>смысл, структура и эмоция</strong>.</p>
-    <p>Каждое решение работает на итог: атмосферу, визуал и впечатление гостей.</p>
+    <div class="intro-eyebrow">О бюро</div>
+    <p>Мы выстраиваем события так, чтобы у них был смысл, структура и эмоция.</p>
+    <p>Каждое решение работает на итог — атмосферу, визуал и впечатление гостей. Без шаблонов.</p>
   </section>
 
-  <!-- EVENTS -->
+  <!-- LABEL -->
   <div class="section-label reveal">
-    <span>Форматы</span>
+    <div class="line"></div>
+    <span>Форматы событий</span>
     <div class="line"></div>
   </div>
 
+  <!-- EVENTS -->
   <section class="events">
 
     <article class="format reveal">
-      <div class="format-head">
-        <span class="format-icon">💍</span>
-        <h3 class="format-title">Свадьбы</h3>
-      </div>
-      <p class="format-text">Индивидуальные события, собранные под характер пары. Без шаблонов — атмосфера со стилем, эмоцией и точностью деталей.</p>
+      <div class="format-number">01</div>
+      <h3 class="format-title">Свадьбы</h3>
+      <p class="format-text">Индивидуальные события, собранные под характер пары. Атмосфера со стилем, эмоцией и точностью деталей.</p>
       <span class="format-tag">— отражение пары</span>
 
       <div class="format-carousel">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461963/ESWED-0077_resized_iaw2om.jpg" alt="Свадьба — фото 1" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461965/ESWED-0120_resized_vrqo4n.jpg" alt="Свадьба — фото 2" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461965/ESWED-0085_resized_cyvwlu.jpg" alt="Свадьба — фото 3" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461964/ESWED-0082_resized_t747r8.jpg" alt="Свадьба — фото 4" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461962/ESWED-0076_resized_mikt8k.jpg" alt="Свадьба — фото 5" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461965/ESWED-0124_resized_dsn7is.jpg" alt="Свадьба — фото 6" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461966/ESWED-0158_resized_vzr4b1.jpg" alt="Свадьба — фото 7" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461966/ESWED-0174_resized_fydqp1.jpg" alt="Свадьба — фото 8" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461968/ESWED-0221_resized_bxgmoc.jpg" alt="Свадьба — фото 9" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461968/ESWED-0195_resized_oxftn3.jpg" alt="Свадьба — фото 10" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461969/ESWED-0088_resized_ut9zym.jpg" alt="Свадьба — фото 11" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461963/ESWED-0077_resized_iaw2om.jpg" alt="Свадьба" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461965/ESWED-0120_resized_vrqo4n.jpg" alt="Свадьба" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461965/ESWED-0085_resized_cyvwlu.jpg" alt="Свадьба" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461964/ESWED-0082_resized_t747r8.jpg" alt="Свадьба" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461962/ESWED-0076_resized_mikt8k.jpg" alt="Свадьба" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461965/ESWED-0124_resized_dsn7is.jpg" alt="Свадьба" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461966/ESWED-0158_resized_vzr4b1.jpg" alt="Свадьба" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461966/ESWED-0174_resized_fydqp1.jpg" alt="Свадьба" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461968/ESWED-0221_resized_bxgmoc.jpg" alt="Свадьба" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461968/ESWED-0195_resized_oxftn3.jpg" alt="Свадьба" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461969/ESWED-0088_resized_ut9zym.jpg" alt="Свадьба" loading="lazy"></div>
         </div>
       </div>
       <div class="carousel-controls">
         <span class="carousel-label">Свадьбы</span>
         <div class="carousel-nav">
           <span class="carousel-count">01 / 11</span>
-          <button class="carousel-arrow prev" aria-label="Предыдущее фото">‹</button>
-          <button class="carousel-arrow next" aria-label="Следующее фото">›</button>
+          <button class="carousel-arrow prev" aria-label="Назад">‹</button>
+          <button class="carousel-arrow next" aria-label="Вперёд">›</button>
         </div>
       </div>
-
-      <a href="#contact" class="format-cta">Заказать услугу <span class="format-cta-arrow">→</span></a>
+      <a href="#contact" class="format-cta">Заказать <span class="format-cta-arrow">→</span></a>
     </article>
 
-    <article class="format format--olive reveal">
-      <div class="format-head">
-        <span class="format-icon">👶</span>
-        <h3 class="format-title">Тушоо той</h3>
-      </div>
+    <article class="format format--dark reveal">
+      <div class="format-number">02</div>
+      <h3 class="format-title">Тушоо той</h3>
       <p class="format-text">Семейное событие, где важны тепло, комфорт и ощущение момента. Спокойная атмосфера — гостям легко и естественно.</p>
       <span class="format-tag">— тёплый день без лишнего шума</span>
 
       <div class="format-carousel">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462548/Aidan-048_resized_1_nhxc48.jpg" alt="Тушоо той — фото 1" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462548/Aidan-017_resized_ylakfw.jpg" alt="Тушоо той — фото 2" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462548/Aidan-050_resized_1_aszyhf.jpg" alt="Тушоо той — фото 3" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462549/Aidan-053_resized_w3qena.jpg" alt="Тушоо той — фото 4" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462549/Aidan-054_resized_dh7utw.jpg" alt="Тушоо той — фото 5" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462549/Aidan-269_resized_g0unyf.jpg" alt="Тушоо той — фото 6" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462548/Aidan-048_resized_1_nhxc48.jpg" alt="Тушоо той" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462548/Aidan-017_resized_ylakfw.jpg" alt="Тушоо той" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462548/Aidan-050_resized_1_aszyhf.jpg" alt="Тушоо той" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462549/Aidan-053_resized_w3qena.jpg" alt="Тушоо той" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462549/Aidan-054_resized_dh7utw.jpg" alt="Тушоо той" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462549/Aidan-269_resized_g0unyf.jpg" alt="Тушоо той" loading="lazy"></div>
         </div>
       </div>
       <div class="carousel-controls">
         <span class="carousel-label">Тушоо той</span>
         <div class="carousel-nav">
           <span class="carousel-count">01 / 06</span>
-          <button class="carousel-arrow prev" aria-label="Предыдущее фото">‹</button>
-          <button class="carousel-arrow next" aria-label="Следующее фото">›</button>
+          <button class="carousel-arrow prev" aria-label="Назад">‹</button>
+          <button class="carousel-arrow next" aria-label="Вперёд">›</button>
         </div>
       </div>
-
-      <a href="#contact" class="format-cta">Заказать услугу <span class="format-cta-arrow">→</span></a>
+      <a href="#contact" class="format-cta">Заказать <span class="format-cta-arrow">→</span></a>
     </article>
 
     <article class="format reveal">
-      <div class="format-head">
-        <span class="format-icon">🎈</span>
-        <h3 class="format-title">Гендер пати</h3>
-      </div>
-      <p class="format-text">Эмоциональный момент, где главные роли — у самих родителей. Продумываем сценарий, декор и визуальную подачу так, чтобы реакция была искренней, а кадры — красивыми.</p>
+      <div class="format-number">03</div>
+      <h3 class="format-title">Гендер пати</h3>
+      <p class="format-text">Эмоциональный момент, где главные роли — у самих родителей. Сценарий, декор и визуальная подача — реакция искренняя, кадры красивые.</p>
       <span class="format-tag">— искренняя реакция в кадре</span>
 
       <div class="format-carousel">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781531508/IMG_9871_swda06.jpg" alt="Гендер пати — фото 1" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781530879/photo_5296696206966857736_y_jn4f5m.jpg" alt="Гендер пати — фото 2" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/f_jpg/v1781531509/IMG_9876_ewk6ns.heic" alt="Гендер пати — фото 3" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781531510/IMG_9875_1_ldnazc.jpg" alt="Гендер пати — фото 4" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781531510/IMG_9873_cmmdxc.jpg" alt="Гендер пати — фото 5" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781531508/IMG_9871_swda06.jpg" alt="Гендер пати" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781530879/photo_5296696206966857736_y_jn4f5m.jpg" alt="Гендер пати" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/f_jpg/v1781531509/IMG_9876_ewk6ns.heic" alt="Гендер пати" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781531510/IMG_9875_1_ldnazc.jpg" alt="Гендер пати" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781531510/IMG_9873_cmmdxc.jpg" alt="Гендер пати" loading="lazy"></div>
         </div>
       </div>
       <div class="carousel-controls">
         <span class="carousel-label">Гендер пати</span>
         <div class="carousel-nav">
           <span class="carousel-count">01 / 05</span>
-          <button class="carousel-arrow prev" aria-label="Предыдущее фото">‹</button>
-          <button class="carousel-arrow next" aria-label="Следующее фото">›</button>
+          <button class="carousel-arrow prev" aria-label="Назад">‹</button>
+          <button class="carousel-arrow next" aria-label="Вперёд">›</button>
         </div>
       </div>
-
-      <a href="#contact" class="format-cta">Заказать услугу <span class="format-cta-arrow">→</span></a>
+      <a href="#contact" class="format-cta">Заказать <span class="format-cta-arrow">→</span></a>
     </article>
 
-    <article class="format format--olive reveal">
-      <div class="format-head">
-        <span class="format-icon">🕊</span>
-        <h3 class="format-title">Закладка капсулы</h3>
-      </div>
+    <article class="format format--dark reveal">
+      <div class="format-number">04</div>
+      <h3 class="format-title">Закладка капсулы</h3>
       <p class="format-text">Официальный старт проекта и фиксация его масштаба. Каждый элемент подчёркивает значимость момента — от сценария до оформления.</p>
       <span class="format-tag">— часть истории объекта</span>
 
       <div class="format-carousel">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461542/kyoto-9_resized_ywuszp.jpg" alt="Закладка капсулы — фото 1" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461457/kyoto-218_resized_dkcd3r.jpg" alt="Закладка капсулы — фото 2" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461457/kyoto-37_resized_cdzqhq.jpg" alt="Закладка капсулы — фото 3" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461457/kyoto-14_resized_ajc4gn.jpg" alt="Закладка капсулы — фото 4" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461457/kyoto-172_resized_eanqla.jpg" alt="Закладка капсулы — фото 5" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461663/kyoto-481_resized_cljv6i.jpg" alt="Закладка капсулы — фото 6" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461715/kyoto-22_resized_hctw63.jpg" alt="Закладка капсулы — фото 7" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461542/kyoto-9_resized_ywuszp.jpg" alt="Закладка капсулы" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461457/kyoto-218_resized_dkcd3r.jpg" alt="Закладка капсулы" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461457/kyoto-37_resized_cdzqhq.jpg" alt="Закладка капсулы" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461457/kyoto-14_resized_ajc4gn.jpg" alt="Закладка капсулы" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461457/kyoto-172_resized_eanqla.jpg" alt="Закладка капсулы" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461663/kyoto-481_resized_cljv6i.jpg" alt="Закладка капсулы" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461715/kyoto-22_resized_hctw63.jpg" alt="Закладка капсулы" loading="lazy"></div>
         </div>
       </div>
       <div class="carousel-controls">
         <span class="carousel-label">Закладка капсулы</span>
         <div class="carousel-nav">
           <span class="carousel-count">01 / 07</span>
-          <button class="carousel-arrow prev" aria-label="Предыдущее фото">‹</button>
-          <button class="carousel-arrow next" aria-label="Следующее фото">›</button>
+          <button class="carousel-arrow prev" aria-label="Назад">‹</button>
+          <button class="carousel-arrow next" aria-label="Вперёд">›</button>
         </div>
       </div>
-
-      <a href="#contact" class="format-cta">Заказать услугу <span class="format-cta-arrow">→</span></a>
+      <a href="#contact" class="format-cta">Заказать <span class="format-cta-arrow">→</span></a>
     </article>
 
     <article class="format reveal">
-      <div class="format-head">
-        <span class="format-icon">🔑</span>
-        <h3 class="format-title">Передача ключей</h3>
-      </div>
+      <div class="format-number">05</div>
+      <h3 class="format-title">Передача ключей</h3>
       <p class="format-text">Событие, которое знакомит людей с жилым комплексом впервые. Сценарий, визуальная подача и ритм — уверенно, статусно, завершённо.</p>
       <span class="format-tag">— первое впечатление о проекте</span>
 
       <div class="format-carousel">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_3_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F_zms3lf.jpg" alt="Передача ключей — фото 1" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_4_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F_ogrqbg.jpg" alt="Передача ключей — фото 2" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_2_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F_spravm.jpg" alt="Передача ключей — фото 3" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_4_hpq5df.jpg" alt="Передача ключей — фото 4" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_1_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F_zkzaza.jpg" alt="Передача ключей — фото 5" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_3_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F_zms3lf.jpg" alt="Передача ключей" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_4_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F_ogrqbg.jpg" alt="Передача ключей" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_2_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F_spravm.jpg" alt="Передача ключей" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_4_hpq5df.jpg" alt="Передача ключей" loading="lazy"></div>
+          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_1_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F_zkzaza.jpg" alt="Передача ключей" loading="lazy"></div>
         </div>
       </div>
       <div class="carousel-controls">
         <span class="carousel-label">Передача ключей</span>
         <div class="carousel-nav">
           <span class="carousel-count">01 / 05</span>
-          <button class="carousel-arrow prev" aria-label="Предыдущее фото">‹</button>
-          <button class="carousel-arrow next" aria-label="Следующее фото">›</button>
+          <button class="carousel-arrow prev" aria-label="Назад">‹</button>
+          <button class="carousel-arrow next" aria-label="Вперёд">›</button>
         </div>
       </div>
-
-      <a href="#contact" class="format-cta">Заказать услугу <span class="format-cta-arrow">→</span></a>
+      <a href="#contact" class="format-cta">Заказать <span class="format-cta-arrow">→</span></a>
     </article>
 
   </section>
 
   <!-- APPROACH -->
   <section class="approach reveal">
-    <h2 class="approach-title">Подход<br>бюро</h2>
+    <div class="approach-eyebrow">Подход</div>
+    <h2 class="approach-title">Как мы<br>работаем</h2>
     <div class="approach-list">
       <div class="approach-item">
-        <div class="approach-mark"></div>
+        <div class="approach-num">1</div>
         <div class="approach-text">Полный цикл организации — от идеи до реализации</div>
       </div>
       <div class="approach-item">
-        <div class="approach-mark"></div>
+        <div class="approach-num">2</div>
         <div class="approach-text">Контроль всех этапов и деталей</div>
       </div>
       <div class="approach-item">
-        <div class="approach-mark"></div>
+        <div class="approach-num">3</div>
         <div class="approach-text">Сильная визуальная и сценарная часть</div>
       </div>
       <div class="approach-item">
-        <div class="approach-mark"></div>
+        <div class="approach-num">4</div>
         <div class="approach-text">Работа с частными и корпоративными проектами</div>
       </div>
       <div class="approach-item">
-        <div class="approach-mark"></div>
+        <div class="approach-num">5</div>
         <div class="approach-text">Фокус на впечатлении, которое остаётся</div>
       </div>
     </div>
@@ -818,7 +841,7 @@
   <!-- CONTACT -->
   <section class="contact reveal" id="contact">
     <div class="contact-eyebrow">Связь с нами</div>
-    <h2 class="contact-title">Расскажите<br>задачу</h2>
+    <h2 class="contact-title">Расскажите<br><em>задачу</em></h2>
     <p class="contact-text">Мы соберём концепцию и формат мероприятия под ваш запрос.</p>
     <div class="contact-buttons">
       <a href="https://wa.me/996000000000" class="contact-btn primary" target="_blank" rel="noopener">
@@ -835,14 +858,15 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="footer-divider"></div>
     <div class="footer-mark">Ivory</div>
     <div class="footer-tag">Event Bureau</div>
+    <div class="footer-rule"></div>
   </footer>
 
 </div>
 
 <script>
+  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -851,10 +875,10 @@
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.12 });
   reveals.forEach(el => observer.observe(el));
 
-  // Photo carousels
+  // Carousels
   document.querySelectorAll('.format').forEach(format => {
     const track = format.querySelector('.carousel-track');
     const slides = format.querySelectorAll('.carousel-slide');
@@ -862,11 +886,8 @@
     const prevBtn = format.querySelector('.carousel-arrow.prev');
     const nextBtn = format.querySelector('.carousel-arrow.next');
     if (!track || !slides.length) return;
-
     const total = slides.length;
-
     const getStep = () => slides[0].getBoundingClientRect().width;
-
     const update = () => {
       const step = getStep();
       let index = Math.round(track.scrollLeft / step);
@@ -875,23 +896,12 @@
       if (prevBtn) prevBtn.disabled = index === 0;
       if (nextBtn) nextBtn.disabled = index === total - 1;
     };
-
     let scrollTimer;
-    track.addEventListener('scroll', () => {
-      clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(update, 80);
-    });
-
-    if (prevBtn) prevBtn.addEventListener('click', () => {
-      track.scrollBy({ left: -getStep(), behavior: 'smooth' });
-    });
-    if (nextBtn) nextBtn.addEventListener('click', () => {
-      track.scrollBy({ left: getStep(), behavior: 'smooth' });
-    });
-
+    track.addEventListener('scroll', () => { clearTimeout(scrollTimer); scrollTimer = setTimeout(update, 80); });
+    if (prevBtn) prevBtn.addEventListener('click', () => track.scrollBy({ left: -getStep(), behavior: 'smooth' }));
+    if (nextBtn) nextBtn.addEventListener('click', () => track.scrollBy({ left: getStep(), behavior: 'smooth' }));
     update();
   });
 </script>
-
 </body>
 </html>
