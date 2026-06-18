@@ -383,6 +383,12 @@ body {
 
 .hero-cta:hover { color: var(--gold); border-color: var(--gold-dim); }
 
+  .rotate-wrap { display: block; height: 1.1em; overflow: hidden; }
+  .rotate-word { display: block; font-style: italic; color: var(--gold); animation: wordIn 0.6s cubic-bezier(0.22,1,0.36,1) forwards; }
+  .rotate-word.out { animation: wordOut 0.5s cubic-bezier(0.22,1,0.36,1) forwards; }
+  @keyframes wordIn { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  @keyframes wordOut { from { transform: translateY(0); opacity: 1; } to { transform: translateY(-100%); opacity: 0; } }
+
 .hero-cta-arrow {
   width: 32px;
   height: 1px;
@@ -1013,11 +1019,9 @@ a:focus-visible, button:focus-visible {
     <div class="hero-eyebrow">Event Bureau — Bishkek</div>
     <h1 class="hero-title">
       Создаём<br>
-      события,<br>
-      <em>которые</em><br>
-      объединяют
+      <span class="rotate-wrap"><span class="rotate-word" id="rotateWord">Свадьбы</span></span>
     </h1>
-    <p class="hero-sub">Людей, бренды и важные моменты жизни — с вниманием к каждой детали.</p>
+    <p class="hero-sub">с вниманием к каждой детали и уважением к вашей истории.</p>
     <a href="#contact" class="hero-cta">
       Обсудить мероприятие
       <span class="hero-cta-arrow"></span>
@@ -1346,6 +1350,24 @@ const statObs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.3 });
 document.querySelectorAll('.stat').forEach(el => statObs.observe(el));
+
+// ── ROTATING HERO TEXT ──
+const _words = ['Свадьбы','Тушоо той','Гендер-пати','Закладка капсулы','Передача ключей'];
+let _wi = 0;
+const _rw = document.getElementById('rotateWord');
+if (_rw) {
+  setInterval(() => {
+    _rw.classList.add('out');
+    setTimeout(() => {
+      _wi = (_wi + 1) % _words.length;
+      _rw.textContent = _words[_wi];
+      _rw.classList.remove('out');
+      _rw.style.animation = 'none';
+      _rw.offsetHeight;
+      _rw.style.animation = '';
+    }, 480);
+  }, 2800);
+}
 
 // ── CAROUSELS ──
 document.querySelectorAll('.direction-block').forEach(block => {
