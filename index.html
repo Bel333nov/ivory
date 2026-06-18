@@ -6,902 +6,1371 @@
 <title>IVORY EVENT BUREAU</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-  @font-face {
-    font-family: 'Lighthaus';
-    src: url('https://res.cloudinary.com/dc2n4hmij/raw/upload/v1781458651/Lighthaus_vn8ooh.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  :root {
-    --black: #0C0C0A;
-    --black-mid: #131310;
-    --black-soft: #1A1A16;
-    --cream: #F0EBE1;
-    --cream-dim: rgba(240, 235, 225, 0.55);
-    --cream-faint: rgba(240, 235, 225, 0.2);
-    --gold: #C8A96E;
-    --gold-dim: rgba(200, 169, 110, 0.35);
-    --line: rgba(240, 235, 225, 0.1);
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--black);
-    color: var(--cream);
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-
-  .container {
-    max-width: 480px;
-    margin: 0 auto;
-    min-height: 100vh;
-    position: relative;
-  }
-
-  /* ===== HERO ===== */
-  .hero {
-    position: relative;
-    height: 100svh;
-    min-height: 640px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    z-index: 0;
-    filter: brightness(0.38);
-  }
-
-  /* Subtle vignette */
-  .hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(12,12,10,0.15) 0%,
-      transparent 30%,
-      transparent 55%,
-      rgba(12,12,10,0.7) 100%
-    );
-    z-index: 1;
-  }
-
-  .hero-top {
-    position: relative;
-    z-index: 2;
-    padding: 36px 28px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    opacity: 0;
-    animation: fadeIn 1s ease forwards 0.1s;
-  }
-
-  .hero-mark-main {
-    font-family: 'Lighthaus', serif;
-    font-size: 15px;
-    letter-spacing: 0.3em;
-    color: var(--cream);
-    text-transform: uppercase;
-  }
-
-  .hero-mark-sub {
-    font-family: 'Jost', sans-serif;
-    font-weight: 200;
-    font-size: 10px;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--cream-dim);
-    margin-top: 4px;
-  }
-
-  .hero-tag {
-    font-family: 'Jost', sans-serif;
-    font-weight: 200;
-    font-size: 10px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--cream-dim);
-    text-align: right;
-    padding-top: 2px;
-  }
-
-  .hero-bottom {
-    position: relative;
-    z-index: 2;
-    padding: 0 28px 44px;
-    opacity: 0;
-    animation: fadeUp 1s ease forwards 0.4s;
-  }
-
-  .hero-eyebrow {
-    font-family: 'EB Garamond', serif;
-    font-style: italic;
-    font-size: 15px;
-    color: var(--gold);
-    letter-spacing: 0.06em;
-    margin-bottom: 14px;
-  }
-
-  .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-weight: 400;
-    font-size: 58px;
-    line-height: 0.92;
-    letter-spacing: -0.01em;
-    color: var(--cream);
-  }
-
-  .hero-title em {
-    font-style: italic;
-    color: var(--gold);
-  }
-
-  .hero-divider {
-    width: 40px;
-    height: 1px;
-    background: var(--gold-dim);
-    margin: 22px 0 18px;
-  }
-
-  .hero-sub {
-    font-size: 13px;
-    line-height: 1.7;
-    color: var(--cream-dim);
-    font-weight: 300;
-    max-width: 240px;
-    letter-spacing: 0.02em;
-  }
-
-  /* ===== INTRO ===== */
-  .intro {
-    padding: 72px 28px 56px;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .intro-eyebrow {
-    font-family: 'Jost', sans-serif;
-    font-weight: 200;
-    font-size: 10px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 24px;
-  }
-
-  .intro p {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    line-height: 1.55;
-    font-weight: 400;
-    color: var(--cream);
-    letter-spacing: 0.01em;
-  }
-
-  .intro p + p {
-    margin-top: 20px;
-    font-family: 'Jost', sans-serif;
-    font-size: 14px;
-    line-height: 1.8;
-    font-weight: 300;
-    color: var(--cream-dim);
-    letter-spacing: 0.02em;
-  }
-
-  /* ===== SECTION LABEL ===== */
-  .section-label {
-    padding: 56px 28px 48px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .section-label .line {
-    flex: 1;
-    height: 1px;
-    background: var(--line);
-  }
-
-  .section-label span {
-    font-size: 10px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--cream-dim);
-    font-weight: 300;
-    white-space: nowrap;
-  }
-
-  /* ===== FORMATS ===== */
-  .events {
-    padding: 0;
-  }
-
-  .format {
-    padding: 56px 28px 64px;
-    border-top: 1px solid var(--line);
-  }
-
-  .format:first-child {
-    border-top: none;
-  }
-
-  .format--dark {
-    background: var(--black-soft);
-  }
-
-  .format-number {
-    font-family: 'EB Garamond', serif;
-    font-style: italic;
-    font-size: 13px;
-    color: var(--gold);
-    letter-spacing: 0.08em;
-    margin-bottom: 20px;
-  }
-
-  .format-title {
-    font-family: 'Playfair Display', serif;
-    font-weight: 400;
-    font-size: 36px;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-    color: var(--cream);
-    margin-bottom: 20px;
-  }
-
-  .format-text {
-    font-size: 13.5px;
-    line-height: 1.78;
-    color: var(--cream-dim);
-    font-weight: 300;
-    max-width: 340px;
-    margin-bottom: 10px;
-    letter-spacing: 0.02em;
-  }
-
-  .format-tag {
-    display: block;
-    font-family: 'EB Garamond', serif;
-    font-style: italic;
-    font-size: 17px;
-    color: var(--gold);
-    letter-spacing: 0.03em;
-    margin-bottom: 36px;
-  }
-
-  /* Carousel */
-  .format-carousel {
-    border-radius: 4px;
-    overflow: hidden;
-  }
-
-  .carousel-track {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .carousel-track::-webkit-scrollbar { display: none; }
-
-  .carousel-slide {
-    flex: 0 0 100%;
-    aspect-ratio: 16 / 10;
-    scroll-snap-align: start;
-    overflow: hidden;
-  }
-
-  .carousel-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    filter: brightness(0.9);
-    transition: filter 0.4s ease;
-  }
-
-  .carousel-controls {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 16px;
-  }
-
-  .carousel-label {
-    font-size: 10px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--cream-faint);
-    font-weight: 300;
-  }
-
-  .carousel-nav {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .carousel-count {
-    font-family: 'EB Garamond', serif;
-    font-style: italic;
-    font-size: 14px;
-    color: var(--cream-dim);
-    letter-spacing: 0.05em;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .carousel-arrow {
-    width: 36px;
-    height: 36px;
-    margin: -8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'EB Garamond', serif;
-    font-size: 24px;
-    color: var(--cream);
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    transition: opacity 0.2s;
-    line-height: 1;
-  }
-
-  .carousel-arrow:active { opacity: 0.4; }
-  .carousel-arrow:disabled { opacity: 0.18; cursor: default; }
-
-  /* CTA */
-  .format-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 36px;
-    padding: 15px 32px;
-    border: 1px solid rgba(200, 169, 110, 0.45);
-    border-radius: 2px;
-    font-size: 11px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    font-weight: 400;
-    color: var(--gold);
-    text-decoration: none;
-    transition: background 0.35s ease, border-color 0.35s ease, color 0.35s ease;
-    font-family: 'Jost', sans-serif;
-  }
-
-  .format-cta:hover {
-    background: var(--gold);
-    color: var(--black);
-    border-color: var(--gold);
-  }
-
-  .format-cta:active {
-    opacity: 0.75;
-    transform: scale(0.98);
-  }
-
-  .format-cta-arrow {
-    font-size: 14px;
-    animation: arrowNudge 2.6s ease-in-out infinite;
-    display: inline-block;
-  }
-
-  @keyframes arrowNudge {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(5px); }
-  }
-
-  /* ===== APPROACH ===== */
-  .approach {
-    padding: 72px 28px 72px;
-    background: var(--black-mid);
-  }
-
-  .approach-eyebrow {
-    font-family: 'Jost', sans-serif;
-    font-weight: 200;
-    font-size: 10px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 28px;
-  }
-
-  .approach-title {
-    font-family: 'Playfair Display', serif;
-    font-weight: 400;
-    font-size: 36px;
-    line-height: 1.2;
-    color: var(--cream);
-    margin-bottom: 48px;
-    letter-spacing: -0.01em;
-  }
-
-  .approach-list {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .approach-item {
-    display: flex;
-    gap: 20px;
-    padding: 20px 0;
-    border-bottom: 1px solid var(--line);
-    align-items: flex-start;
-  }
-
-  .approach-item:last-child { border-bottom: none; }
-
-  .approach-num {
-    font-family: 'EB Garamond', serif;
-    font-style: italic;
-    font-size: 13px;
-    color: var(--gold);
-    flex-shrink: 0;
-    padding-top: 1px;
-    width: 18px;
-  }
-
-  .approach-text {
-    font-size: 14px;
-    line-height: 1.65;
-    font-weight: 300;
-    color: var(--cream);
-    letter-spacing: 0.01em;
-  }
-
-  /* ===== CONTACT ===== */
-  .contact {
-    padding: 80px 28px 0;
-    text-align: center;
-  }
-
-  .contact-eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 200;
-    margin-bottom: 22px;
-    font-family: 'Jost', sans-serif;
-  }
-
-  .contact-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 38px;
-    font-weight: 400;
-    line-height: 1.2;
-    color: var(--cream);
-    margin-bottom: 16px;
-    letter-spacing: -0.01em;
-  }
-
-  .contact-title em {
-    font-style: italic;
-    color: var(--gold);
-  }
-
-  .contact-text {
-    font-size: 14px;
-    line-height: 1.75;
-    color: var(--cream-dim);
-    font-weight: 300;
-    max-width: 280px;
-    margin: 0 auto 40px;
-    letter-spacing: 0.02em;
-  }
-
-  .contact-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .contact-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 18px 24px;
-    border-radius: 2px;
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0.18em;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    font-family: 'Jost', sans-serif;
-  }
-
-  .contact-btn:active { transform: scale(0.97); opacity: 0.85; }
-
-  .contact-btn.primary {
-    background: var(--gold);
-    color: var(--black);
-    border: 1px solid var(--gold);
-  }
-
-  .contact-btn.primary:hover {
-    background: transparent;
-    color: var(--gold);
-  }
-
-  .contact-btn.secondary {
-    background: transparent;
-    color: var(--cream-dim);
-    border: 1px solid var(--line);
-  }
-
-  .contact-btn.secondary:hover {
-    border-color: rgba(200, 169, 110, 0.3);
-    color: var(--gold);
-  }
-
-  .contact-btn .icon { font-size: 16px; }
-
-  /* ===== FOOTER ===== */
-  .footer {
-    padding: 72px 28px 52px;
-    text-align: center;
-    border-top: 1px solid var(--line);
-    margin-top: 80px;
-  }
-
-  .footer-mark {
-    font-family: 'Lighthaus', serif;
-    font-size: 28px;
-    letter-spacing: 0.12em;
-    color: var(--cream);
-    margin-bottom: 6px;
-  }
-
-  .footer-tag {
-    font-size: 9px;
-    letter-spacing: 0.38em;
-    text-transform: uppercase;
-    color: var(--cream-faint);
-    font-weight: 300;
-    margin-bottom: 28px;
-  }
-
-  .footer-rule {
-    width: 1px;
-    height: 40px;
-    background: var(--gold-dim);
-    margin: 0 auto;
-  }
-
-  /* Animations */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(18px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(22px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .reveal, .hero-top, .hero-bottom, .format-cta-arrow {
-      animation: none !important;
-      transition: none !important;
-      opacity: 1 !important;
-      transform: none !important;
-    }
-  }
-
-  a:focus-visible, .carousel-arrow:focus-visible {
-    outline: 1px solid var(--gold);
-    outline-offset: 3px;
-  }
+:root {
+  --black: #0C0C0A;
+  --black-2: #111110;
+  --black-3: #161613;
+  --cream: #EDE8DF;
+  --cream-dim: rgba(237,232,223,0.55);
+  --cream-faint: rgba(237,232,223,0.15);
+  --cream-ultra: rgba(237,232,223,0.07);
+  --gold: #C4A97A;
+  --gold-dim: rgba(196,169,122,0.3);
+  --gold-faint: rgba(196,169,122,0.12);
+  --line: rgba(237,232,223,0.08);
+  --line-gold: rgba(196,169,122,0.18);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── PRELOADER ── */
+.preloader {
+  position: fixed;
+  inset: 0;
+  background: var(--black);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.preloader.hidden { opacity: 0; visibility: hidden; }
+
+.preloader-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+
+.preloader-logo span {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.45em;
+  color: var(--cream-dim);
+  margin-top: 6px;
+  text-align: center;
+}
+
+.preloader-bar-wrap {
+  width: 120px;
+  height: 1px;
+  background: var(--cream-faint);
+  position: relative;
+  overflow: hidden;
+}
+
+.preloader-bar {
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  width: 0%;
+  background: var(--gold);
+  transition: width 0.05s linear;
+}
+
+.preloader-pct {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  color: var(--cream-dim);
+}
+
+/* ── NAV ── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 32px;
+  transition: background 0.4s ease, padding 0.4s ease;
+}
+
+.nav.scrolled {
+  background: rgba(12,12,10,0.92);
+  backdrop-filter: blur(12px);
+  padding: 18px 32px;
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-logo {
+  text-decoration: none;
+}
+
+.nav-logo .l-main {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cream);
+  display: block;
+}
+
+.nav-logo .l-sub {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8px;
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  margin-top: 3px;
+  display: block;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-links {
+  display: none;
+  list-style: none;
+  gap: 32px;
+}
+
+.nav-links a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  text-decoration: none;
+  transition: color 0.25s;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+.burger {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.burger span {
+  display: block;
+  height: 1px;
+  background: var(--cream);
+  transition: all 0.35s ease;
+}
+
+.burger span:nth-child(1) { width: 28px; }
+.burger span:nth-child(2) { width: 20px; }
+.burger span:nth-child(3) { width: 28px; }
+
+.burger.open span:nth-child(1) { width: 24px; transform: translateY(7px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.burger.open span:nth-child(3) { width: 24px; transform: translateY(-7px) rotate(-45deg); }
+
+/* ── MOBILE MENU ── */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: var(--black-2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 100px 32px 48px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.mobile-menu.open { opacity: 1; visibility: visible; }
+
+.mobile-menu-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mobile-menu-links li {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.mobile-menu.open .mobile-menu-links li { opacity: 1; transform: none; }
+.mobile-menu.open .mobile-menu-links li:nth-child(1) { transition-delay: 0.05s; }
+.mobile-menu.open .mobile-menu-links li:nth-child(2) { transition-delay: 0.1s; }
+.mobile-menu.open .mobile-menu-links li:nth-child(3) { transition-delay: 0.15s; }
+.mobile-menu.open .mobile-menu-links li:nth-child(4) { transition-delay: 0.2s; }
+.mobile-menu.open .mobile-menu-links li:nth-child(5) { transition-delay: 0.25s; }
+.mobile-menu.open .mobile-menu-links li:nth-child(6) { transition-delay: 0.3s; }
+
+.mobile-menu-links a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: var(--cream);
+  text-decoration: none;
+  display: block;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  transition: color 0.25s;
+}
+
+.mobile-menu-links a:hover { color: var(--gold); }
+
+.mobile-menu-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.mobile-menu-city {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+}
+
+.mobile-menu-cta {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-dim);
+  padding-bottom: 2px;
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  height: 100svh;
+  min-height: 620px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: brightness(0.45);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(12,12,10,0.2) 0%,
+    rgba(12,12,10,0.05) 35%,
+    rgba(12,12,10,0.6) 75%,
+    rgba(12,12,10,0.88) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 32px 60px;
+  opacity: 0;
+  animation: heroUp 1.2s cubic-bezier(0.22,1,0.36,1) forwards 0.6s;
+}
+
+.hero-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 14vw, 72px);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+  margin-bottom: 28px;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--cream-dim);
+}
+
+.hero-sub {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--cream-dim);
+  max-width: 280px;
+  letter-spacing: 0.04em;
+  margin-bottom: 36px;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cream);
+  text-decoration: none;
+  border-bottom: 1px solid var(--cream-faint);
+  padding-bottom: 4px;
+  transition: color 0.25s, border-color 0.25s;
+}
+
+.hero-cta:hover { color: var(--gold); border-color: var(--gold-dim); }
+
+.hero-cta-arrow {
+  width: 32px;
+  height: 1px;
+  background: currentColor;
+  position: relative;
+  transition: width 0.3s ease;
+}
+
+.hero-cta:hover .hero-cta-arrow { width: 48px; }
+
+.hero-cta-arrow::after {
+  content: '';
+  position: absolute;
+  right: 0; top: -3px;
+  width: 6px; height: 6px;
+  border-right: 1px solid currentColor;
+  border-top: 1px solid currentColor;
+  transform: rotate(45deg);
+}
+
+/* ── SCROLL INDICATOR ── */
+.scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  right: 32px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 1.4s;
+}
+
+.scroll-hint-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, var(--cream-faint));
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+.scroll-hint-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cream-faint);
+  writing-mode: vertical-rl;
+}
+
+/* ── SECTION BASE ── */
+.section {
+  padding: 88px 32px;
+}
+
+.eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+/* ── ABOUT ── */
+.about {
+  background: var(--black-2);
+  padding: 88px 32px;
+}
+
+.about-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 8vw, 42px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--cream);
+  margin-bottom: 28px;
+  letter-spacing: 0.01em;
+}
+
+.about-title em { font-style: italic; color: var(--gold); }
+
+.about-body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--cream-dim);
+  letter-spacing: 0.03em;
+}
+
+/* ── DIRECTIONS ── */
+.directions { padding: 0; }
+
+.directions-header {
+  padding: 88px 32px 52px;
+}
+
+.directions-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 7vw, 36px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--cream);
+  margin-top: 16px;
+}
+
+.direction-block {
+  border-top: 1px solid var(--line);
+  position: relative;
+}
+
+.direction-block:last-child { border-bottom: 1px solid var(--line); }
+.direction-block:nth-child(even) { background: var(--black-2); }
+
+.direction-head {
+  padding: 44px 32px 0;
+}
+
+.direction-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+.direction-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--cream);
+  margin-bottom: 14px;
+  line-height: 1.15;
+}
+
+.direction-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--cream-dim);
+  letter-spacing: 0.03em;
+  max-width: 340px;
+  margin-bottom: 32px;
+}
+
+.dir-carousel { overflow: hidden; }
+
+.dir-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.dir-track::-webkit-scrollbar { display: none; }
+
+.dir-slide {
+  flex: 0 0 100%;
+  aspect-ratio: 16 / 10;
+  scroll-snap-align: start;
+  overflow: hidden;
+}
+
+.dir-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.82);
+  transition: filter 0.4s ease;
+}
+
+.dir-slide img:hover { filter: brightness(0.95); }
+
+.dir-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px 0;
+}
+
+.dir-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8px;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--cream-faint);
+}
+
+.dir-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.dir-count {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--cream-dim);
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
+}
+
+.dir-arrow {
+  width: 40px;
+  height: 40px;
+  margin: -8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 300;
+  color: var(--cream);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s, opacity 0.2s;
+  line-height: 1;
+}
+
+.dir-arrow:disabled { opacity: 0.18; cursor: default; }
+.dir-arrow:not(:disabled):hover { color: var(--gold); }
+
+.dir-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 28px 32px 44px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-dim);
+  padding-bottom: 3px;
+  transition: color 0.25s, border-color 0.25s;
+  width: fit-content;
+}
+
+.dir-cta:hover { border-color: var(--gold); }
+
+/* ── PROCESS ── */
+.process {
+  background: var(--black-2);
+  padding: 88px 32px;
+}
+
+.process-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 7vw, 36px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--cream);
+  margin-top: 16px;
+  margin-bottom: 52px;
+}
+
+.step {
+  display: flex;
+  gap: 28px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
+.step:first-of-type { padding-top: 0; }
+.step:last-of-type { border-bottom: none; padding-bottom: 0; }
+
+.step-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--line-gold);
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+  line-height: 1;
+  padding-top: 2px;
+  min-width: 36px;
+  font-style: italic;
+}
+
+.step-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--cream);
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.step-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--cream-dim);
+  letter-spacing: 0.03em;
+}
+
+/* ── STATS ── */
+.stats {
+  padding: 88px 32px;
+}
+
+.stats-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 7vw, 36px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--cream);
+  margin-top: 16px;
+  margin-bottom: 52px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.stat {
+  background: var(--black-3);
+  padding: 36px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 2px;
+  height: 0;
+  background: var(--gold);
+  transition: height 0.6s ease;
+}
+
+.stat.visible::before { height: 100%; }
+
+.stat-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+  font-style: italic;
+}
+
+.stat-value sup {
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--gold);
+  vertical-align: top;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+.stat-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--cream-dim);
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+}
+
+/* ── CTA SECTION ── */
+.cta-section {
+  background: var(--black-2);
+  padding: 100px 32px 88px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, var(--gold-dim));
+}
+
+.cta-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+}
+
+.cta-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 9vw, 48px);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--cream);
+  margin-bottom: 20px;
+  letter-spacing: 0.01em;
+}
+
+.cta-title em {
+  font-style: italic;
+  color: var(--cream-dim);
+}
+
+.cta-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--cream-dim);
+  max-width: 260px;
+  margin: 0 auto 44px;
+  letter-spacing: 0.04em;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 20px 44px;
+  background: var(--gold);
+  color: var(--black);
+  border: none;
+  border-radius: 1px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.15s ease;
+  cursor: pointer;
+}
+
+.cta-btn:hover { background: #d4b57e; }
+.cta-btn:active { transform: scale(0.97); }
+
+.cta-links {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 28px;
+}
+
+.cta-link {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  text-decoration: none;
+  transition: color 0.25s;
+}
+
+.cta-link:hover { color: var(--gold); }
+
+/* ── FOOTER ── */
+footer {
+  padding: 52px 32px 40px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.footer-brand .fb-main {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cream);
+  display: block;
+}
+
+.footer-brand .fb-sub {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8px;
+  font-weight: 300;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--cream-faint);
+  margin-top: 5px;
+  display: block;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.footer-copy {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 300;
+  color: var(--cream-faint);
+  letter-spacing: 0.1em;
+  line-height: 1.7;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes heroUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scrollPulse {
+  0%,100% { opacity: 0.3; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.08); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.85s cubic-bezier(0.22,1,0.36,1), transform 0.85s cubic-bezier(0.22,1,0.36,1);
+}
+
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .hero-content, .scroll-hint { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
+  .preloader { display: none; }
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: 3px;
+}
 </style>
 </head>
 <body>
-<div class="container">
 
-  <!-- HERO -->
-  <section class="hero">
-    <img class="hero-bg" src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781534450/sdjkaef_rhbkrt.jpg" alt="Ivory Event Bureau">
-
-    <div class="hero-top">
-      <div>
-        <div class="hero-mark-main">Ivory</div>
-        <div class="hero-mark-sub">Event Bureau</div>
-      </div>
-      <div class="hero-tag">Bishkek<br>Kyrgyzstan</div>
-    </div>
-
-    <div class="hero-bottom">
-      <div class="hero-eyebrow">полный цикл организации</div>
-      <h1 class="hero-title">События<br><em>под ключ</em></h1>
-      <div class="hero-divider"></div>
-      <p class="hero-sub">От первой идеи до впечатления, которое остаётся надолго.</p>
-    </div>
-  </section>
-
-  <!-- INTRO -->
-  <section class="intro reveal">
-    <div class="intro-eyebrow">О бюро</div>
-    <p>Мы выстраиваем события так, чтобы у них был смысл, структура и эмоция.</p>
-    <p>Каждое решение работает на итог — атмосферу, визуал и впечатление гостей. Без шаблонов.</p>
-  </section>
-
-  <!-- LABEL -->
-  <div class="section-label reveal">
-    <div class="line"></div>
-    <span>Форматы событий</span>
-    <div class="line"></div>
+<!-- PRELOADER -->
+<div class="preloader" id="preloader">
+  <div class="preloader-logo">
+    Ivory
+    <span>Event Bureau</span>
   </div>
-
-  <!-- EVENTS -->
-  <section class="events">
-
-    <article class="format reveal">
-      <div class="format-number">01</div>
-      <h3 class="format-title">Свадьбы</h3>
-      <p class="format-text">Индивидуальные события, собранные под характер пары. Атмосфера со стилем, эмоцией и точностью деталей.</p>
-      <span class="format-tag">— отражение пары</span>
-
-      <div class="format-carousel">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461963/ESWED-0077_resized_iaw2om.jpg" alt="Свадьба" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461965/ESWED-0120_resized_vrqo4n.jpg" alt="Свадьба" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461965/ESWED-0085_resized_cyvwlu.jpg" alt="Свадьба" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461964/ESWED-0082_resized_t747r8.jpg" alt="Свадьба" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461962/ESWED-0076_resized_mikt8k.jpg" alt="Свадьба" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461965/ESWED-0124_resized_dsn7is.jpg" alt="Свадьба" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461966/ESWED-0158_resized_vzr4b1.jpg" alt="Свадьба" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461966/ESWED-0174_resized_fydqp1.jpg" alt="Свадьба" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461968/ESWED-0221_resized_bxgmoc.jpg" alt="Свадьба" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461968/ESWED-0195_resized_oxftn3.jpg" alt="Свадьба" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461969/ESWED-0088_resized_ut9zym.jpg" alt="Свадьба" loading="lazy"></div>
-        </div>
-      </div>
-      <div class="carousel-controls">
-        <span class="carousel-label">Свадьбы</span>
-        <div class="carousel-nav">
-          <span class="carousel-count">01 / 11</span>
-          <button class="carousel-arrow prev" aria-label="Назад">‹</button>
-          <button class="carousel-arrow next" aria-label="Вперёд">›</button>
-        </div>
-      </div>
-      <a href="#contact" class="format-cta">Заказать <span class="format-cta-arrow">→</span></a>
-    </article>
-
-    <article class="format format--dark reveal">
-      <div class="format-number">02</div>
-      <h3 class="format-title">Тушоо той</h3>
-      <p class="format-text">Семейное событие, где важны тепло, комфорт и ощущение момента. Спокойная атмосфера — гостям легко и естественно.</p>
-      <span class="format-tag">— тёплый день без лишнего шума</span>
-
-      <div class="format-carousel">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462548/Aidan-048_resized_1_nhxc48.jpg" alt="Тушоо той" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462548/Aidan-017_resized_ylakfw.jpg" alt="Тушоо той" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462548/Aidan-050_resized_1_aszyhf.jpg" alt="Тушоо той" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462549/Aidan-053_resized_w3qena.jpg" alt="Тушоо той" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462549/Aidan-054_resized_dh7utw.jpg" alt="Тушоо той" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462549/Aidan-269_resized_g0unyf.jpg" alt="Тушоо той" loading="lazy"></div>
-        </div>
-      </div>
-      <div class="carousel-controls">
-        <span class="carousel-label">Тушоо той</span>
-        <div class="carousel-nav">
-          <span class="carousel-count">01 / 06</span>
-          <button class="carousel-arrow prev" aria-label="Назад">‹</button>
-          <button class="carousel-arrow next" aria-label="Вперёд">›</button>
-        </div>
-      </div>
-      <a href="#contact" class="format-cta">Заказать <span class="format-cta-arrow">→</span></a>
-    </article>
-
-    <article class="format reveal">
-      <div class="format-number">03</div>
-      <h3 class="format-title">Гендер пати</h3>
-      <p class="format-text">Эмоциональный момент, где главные роли — у самих родителей. Сценарий, декор и визуальная подача — реакция искренняя, кадры красивые.</p>
-      <span class="format-tag">— искренняя реакция в кадре</span>
-
-      <div class="format-carousel">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781531508/IMG_9871_swda06.jpg" alt="Гендер пати" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781530879/photo_5296696206966857736_y_jn4f5m.jpg" alt="Гендер пати" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/f_jpg/v1781531509/IMG_9876_ewk6ns.heic" alt="Гендер пати" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781531510/IMG_9875_1_ldnazc.jpg" alt="Гендер пати" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781531510/IMG_9873_cmmdxc.jpg" alt="Гендер пати" loading="lazy"></div>
-        </div>
-      </div>
-      <div class="carousel-controls">
-        <span class="carousel-label">Гендер пати</span>
-        <div class="carousel-nav">
-          <span class="carousel-count">01 / 05</span>
-          <button class="carousel-arrow prev" aria-label="Назад">‹</button>
-          <button class="carousel-arrow next" aria-label="Вперёд">›</button>
-        </div>
-      </div>
-      <a href="#contact" class="format-cta">Заказать <span class="format-cta-arrow">→</span></a>
-    </article>
-
-    <article class="format format--dark reveal">
-      <div class="format-number">04</div>
-      <h3 class="format-title">Закладка капсулы</h3>
-      <p class="format-text">Официальный старт проекта и фиксация его масштаба. Каждый элемент подчёркивает значимость момента — от сценария до оформления.</p>
-      <span class="format-tag">— часть истории объекта</span>
-
-      <div class="format-carousel">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461542/kyoto-9_resized_ywuszp.jpg" alt="Закладка капсулы" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461457/kyoto-218_resized_dkcd3r.jpg" alt="Закладка капсулы" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461457/kyoto-37_resized_cdzqhq.jpg" alt="Закладка капсулы" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461457/kyoto-14_resized_ajc4gn.jpg" alt="Закладка капсулы" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461457/kyoto-172_resized_eanqla.jpg" alt="Закладка капсулы" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461663/kyoto-481_resized_cljv6i.jpg" alt="Закладка капсулы" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461715/kyoto-22_resized_hctw63.jpg" alt="Закладка капсулы" loading="lazy"></div>
-        </div>
-      </div>
-      <div class="carousel-controls">
-        <span class="carousel-label">Закладка капсулы</span>
-        <div class="carousel-nav">
-          <span class="carousel-count">01 / 07</span>
-          <button class="carousel-arrow prev" aria-label="Назад">‹</button>
-          <button class="carousel-arrow next" aria-label="Вперёд">›</button>
-        </div>
-      </div>
-      <a href="#contact" class="format-cta">Заказать <span class="format-cta-arrow">→</span></a>
-    </article>
-
-    <article class="format reveal">
-      <div class="format-number">05</div>
-      <h3 class="format-title">Передача ключей</h3>
-      <p class="format-text">Событие, которое знакомит людей с жилым комплексом впервые. Сценарий, визуальная подача и ритм — уверенно, статусно, завершённо.</p>
-      <span class="format-tag">— первое впечатление о проекте</span>
-
-      <div class="format-carousel">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_3_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F_zms3lf.jpg" alt="Передача ключей" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_4_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F_ogrqbg.jpg" alt="Передача ключей" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_2_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F_spravm.jpg" alt="Передача ключей" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_4_hpq5df.jpg" alt="Передача ключей" loading="lazy"></div>
-          <div class="carousel-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_1_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F_zkzaza.jpg" alt="Передача ключей" loading="lazy"></div>
-        </div>
-      </div>
-      <div class="carousel-controls">
-        <span class="carousel-label">Передача ключей</span>
-        <div class="carousel-nav">
-          <span class="carousel-count">01 / 05</span>
-          <button class="carousel-arrow prev" aria-label="Назад">‹</button>
-          <button class="carousel-arrow next" aria-label="Вперёд">›</button>
-        </div>
-      </div>
-      <a href="#contact" class="format-cta">Заказать <span class="format-cta-arrow">→</span></a>
-    </article>
-
-  </section>
-
-  <!-- APPROACH -->
-  <section class="approach reveal">
-    <div class="approach-eyebrow">Подход</div>
-    <h2 class="approach-title">Как мы<br>работаем</h2>
-    <div class="approach-list">
-      <div class="approach-item">
-        <div class="approach-num">1</div>
-        <div class="approach-text">Полный цикл организации — от идеи до реализации</div>
-      </div>
-      <div class="approach-item">
-        <div class="approach-num">2</div>
-        <div class="approach-text">Контроль всех этапов и деталей</div>
-      </div>
-      <div class="approach-item">
-        <div class="approach-num">3</div>
-        <div class="approach-text">Сильная визуальная и сценарная часть</div>
-      </div>
-      <div class="approach-item">
-        <div class="approach-num">4</div>
-        <div class="approach-text">Работа с частными и корпоративными проектами</div>
-      </div>
-      <div class="approach-item">
-        <div class="approach-num">5</div>
-        <div class="approach-text">Фокус на впечатлении, которое остаётся</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact reveal" id="contact">
-    <div class="contact-eyebrow">Связь с нами</div>
-    <h2 class="contact-title">Расскажите<br><em>задачу</em></h2>
-    <p class="contact-text">Мы соберём концепцию и формат мероприятия под ваш запрос.</p>
-    <div class="contact-buttons">
-      <a href="https://wa.me/996000000000" class="contact-btn primary" target="_blank" rel="noopener">
-        <span class="icon">💬</span> Написать в WhatsApp
-      </a>
-      <a href="tel:+996000000000" class="contact-btn secondary">
-        <span class="icon">📞</span> Позвонить
-      </a>
-      <a href="https://instagram.com/direct/" class="contact-btn secondary" target="_blank" rel="noopener">
-        <span class="icon">✉️</span> Написать в Direct
-      </a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-mark">Ivory</div>
-    <div class="footer-tag">Event Bureau</div>
-    <div class="footer-rule"></div>
-  </footer>
-
+  <div class="preloader-bar-wrap">
+    <div class="preloader-bar" id="preloaderBar"></div>
+  </div>
+  <div class="preloader-pct" id="preloaderPct">0%</div>
 </div>
 
-<script>
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  reveals.forEach(el => observer.observe(el));
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <a href="#" class="nav-logo">
+    <span class="l-main">Ivory</span>
+    <span class="l-sub">Event Bureau</span>
+  </a>
+  <div class="nav-right">
+    <button class="burger" id="burgerBtn" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
 
-  // Carousels
-  document.querySelectorAll('.format').forEach(format => {
-    const track = format.querySelector('.carousel-track');
-    const slides = format.querySelectorAll('.carousel-slide');
-    const countEl = format.querySelector('.carousel-count');
-    const prevBtn = format.querySelector('.carousel-arrow.prev');
-    const nextBtn = format.querySelector('.carousel-arrow.next');
-    if (!track || !slides.length) return;
-    const total = slides.length;
-    const getStep = () => slides[0].getBoundingClientRect().width;
-    const update = () => {
-      const step = getStep();
-      let index = Math.round(track.scrollLeft / step);
-      index = Math.max(0, Math.min(total - 1, index));
-      if (countEl) countEl.textContent = String(index + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0');
-      if (prevBtn) prevBtn.disabled = index === 0;
-      if (nextBtn) nextBtn.disabled = index === total - 1;
-    };
-    let scrollTimer;
-    track.addEventListener('scroll', () => { clearTimeout(scrollTimer); scrollTimer = setTimeout(update, 80); });
-    if (prevBtn) prevBtn.addEventListener('click', () => track.scrollBy({ left: -getStep(), behavior: 'smooth' }));
-    if (nextBtn) nextBtn.addEventListener('click', () => track.scrollBy({ left: getStep(), behavior: 'smooth' }));
-    update();
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul class="mobile-menu-links">
+    <li><a href="#about" onclick="closeMenu()">О нас</a></li>
+    <li><a href="#directions" onclick="closeMenu()">Направления</a></li>
+    <li><a href="#process" onclick="closeMenu()">Как работаем</a></li>
+    <li><a href="#stats" onclick="closeMenu()">Цифры</a></li>
+    <li><a href="#contact" onclick="closeMenu()">Контакты</a></li>
+  </ul>
+  <div class="mobile-menu-bottom">
+    <span class="mobile-menu-city">Bishkek, KG</span>
+    <a href="#contact" class="mobile-menu-cta" onclick="closeMenu()">Обсудить мероприятие</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <img class="hero-media"
+    src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781534450/sdjkaef_rhbkrt.jpg"
+    alt="Ivory Event Bureau — создаём события, которые объединяют">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Event Bureau — Bishkek</div>
+    <h1 class="hero-title">
+      Создаём<br>
+      события,<br>
+      <em>которые</em><br>
+      объединяют
+    </h1>
+    <p class="hero-sub">Людей, бренды и важные моменты жизни — с вниманием к каждой детали.</p>
+    <a href="#contact" class="hero-cta">
+      Обсудить мероприятие
+      <span class="hero-cta-arrow"></span>
+    </a>
+  </div>
+
+  <div class="scroll-hint">
+    <span class="scroll-hint-label">Scroll</span>
+    <span class="scroll-hint-line"></span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about reveal" id="about">
+  <div class="eyebrow">О нас</div>
+  <h2 class="about-title">
+    Мы верим, что каждое событие<br>
+    должно иметь <em>смысл</em>
+  </h2>
+  <p class="about-body">Именно поэтому мы не просто организуем мероприятия. Мы создаём продуманные сценарии, сильные эмоции и впечатления, которые остаются с людьми надолго.</p>
+</section>
+
+<!-- DIRECTIONS -->
+<section class="directions" id="directions">
+  <div class="directions-header reveal">
+    <div class="eyebrow">Наши направления</div>
+    <h2 class="directions-title">Каждый праздник<br><em>— особая история</em></h2>
+  </div>
+
+  <!-- 01 Свадьбы -->
+  <div class="direction-block">
+    <div class="direction-head">
+      <div class="direction-num">01</div>
+      <div class="direction-name">Свадьбы</div>
+      <div class="direction-text">Создание уникальных свадебных концепций, отражающих историю пары и превращающих важнейший день жизни в незабываемое событие.</div>
+    </div>
+    <div class="dir-carousel">
+      <div class="dir-track">
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461963/ESWED-0077_resized_iaw2om.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461965/ESWED-0120_resized_vrqo4n.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461965/ESWED-0085_resized_cyvwlu.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461964/ESWED-0082_resized_t747r8.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461962/ESWED-0076_resized_mikt8k.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461965/ESWED-0124_resized_dsn7is.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461966/ESWED-0158_resized_vzr4b1.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461966/ESWED-0174_resized_fydqp1.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461968/ESWED-0221_resized_bxgmoc.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461968/ESWED-0195_resized_oxftn3.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461969/ESWED-0088_resized_ut9zym.jpg" alt="" loading="lazy"></div>
+      </div>
+    </div>
+    <div class="dir-controls">
+      <span class="dir-label">Свадьбы</span>
+      <div class="dir-nav">
+        <span class="dir-count">01 / 11</span>
+        <button class="dir-arrow prev" aria-label="Назад">‹</button>
+        <button class="dir-arrow next" aria-label="Вперёд">›</button>
+      </div>
+    </div>
+    <a href="#contact" class="dir-cta">Заказать →</a>
+  </div>
+
+  <!-- 02 Тушоо той -->
+  <div class="direction-block">
+    <div class="direction-head">
+      <div class="direction-num">02</div>
+      <div class="direction-name">Тушоо той</div>
+      <div class="direction-text">Организация семейных торжеств с уважением к традициям, объединяющих поколения в атмосфере тепла и искренних эмоций.</div>
+    </div>
+    <div class="dir-carousel">
+      <div class="dir-track">
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462548/Aidan-048_resized_1_nhxc48.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462548/Aidan-017_resized_ylakfw.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462548/Aidan-050_resized_1_aszyhf.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462549/Aidan-053_resized_w3qena.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462549/Aidan-054_resized_dh7utw.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781462549/Aidan-269_resized_g0unyf.jpg" alt="" loading="lazy"></div>
+      </div>
+    </div>
+    <div class="dir-controls">
+      <span class="dir-label">Тушоо той</span>
+      <div class="dir-nav">
+        <span class="dir-count">01 / 06</span>
+        <button class="dir-arrow prev" aria-label="Назад">‹</button>
+        <button class="dir-arrow next" aria-label="Вперёд">›</button>
+      </div>
+    </div>
+    <a href="#contact" class="dir-cta">Заказать →</a>
+  </div>
+
+  <!-- 03 Гендер-пати -->
+  <div class="direction-block">
+    <div class="direction-head">
+      <div class="direction-num">03</div>
+      <div class="direction-name">Гендер-пати</div>
+      <div class="direction-text">Создание ярких и трогательных событий, где каждый момент наполнен радостью ожидания и счастливыми открытиями.</div>
+    </div>
+    <div class="dir-carousel">
+      <div class="dir-track">
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781531508/IMG_9871_swda06.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781530879/photo_5296696206966857736_y_jn4f5m.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/f_jpg/v1781531509/IMG_9876_ewk6ns.heic" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781531510/IMG_9875_1_ldnazc.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781531510/IMG_9873_cmmdxc.jpg" alt="" loading="lazy"></div>
+      </div>
+    </div>
+    <div class="dir-controls">
+      <span class="dir-label">Гендер-пати</span>
+      <div class="dir-nav">
+        <span class="dir-count">01 / 05</span>
+        <button class="dir-arrow prev" aria-label="Назад">‹</button>
+        <button class="dir-arrow next" aria-label="Вперёд">›</button>
+      </div>
+    </div>
+    <a href="#contact" class="dir-cta">Заказать →</a>
+  </div>
+
+  <!-- 04 Закладка капсулы -->
+  <div class="direction-block">
+    <div class="direction-head">
+      <div class="direction-num">04</div>
+      <div class="direction-name">Закладка капсулы</div>
+      <div class="direction-text">Разработка концепции торжественных церемоний, символизирующих начало масштабных проектов и важных этапов развития компании.</div>
+    </div>
+    <div class="dir-carousel">
+      <div class="dir-track">
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461542/kyoto-9_resized_ywuszp.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461457/kyoto-218_resized_dkcd3r.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461457/kyoto-37_resized_cdzqhq.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461457/kyoto-14_resized_ajc4gn.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461457/kyoto-172_resized_eanqla.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461663/kyoto-481_resized_cljv6i.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781461715/kyoto-22_resized_hctw63.jpg" alt="" loading="lazy"></div>
+      </div>
+    </div>
+    <div class="dir-controls">
+      <span class="dir-label">Закладка капсулы</span>
+      <div class="dir-nav">
+        <span class="dir-count">01 / 07</span>
+        <button class="dir-arrow prev" aria-label="Назад">‹</button>
+        <button class="dir-arrow next" aria-label="Вперёд">›</button>
+      </div>
+    </div>
+    <a href="#contact" class="dir-cta">Заказать →</a>
+  </div>
+
+  <!-- 05 Передача ключей -->
+  <div class="direction-block">
+    <div class="direction-head">
+      <div class="direction-num">05</div>
+      <div class="direction-name">Передача ключей</div>
+      <div class="direction-text">Организация запоминающихся церемоний для собственников, превращающих получение ключей в настоящий праздник нового этапа жизни.</div>
+    </div>
+    <div class="dir-carousel">
+      <div class="dir-track">
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_3_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F_zms3lf.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_4_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F_ogrqbg.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_2_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F_spravm.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_4_hpq5df.jpg" alt="" loading="lazy"></div>
+        <div class="dir-slide"><img src="https://res.cloudinary.com/dc2n4hmij/image/upload/v1781183811/%D0%A4%D0%BE%D1%82%D0%BE_1_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F_zkzaza.jpg" alt="" loading="lazy"></div>
+      </div>
+    </div>
+    <div class="dir-controls">
+      <span class="dir-label">Передача ключей</span>
+      <div class="dir-nav">
+        <span class="dir-count">01 / 05</span>
+        <button class="dir-arrow prev" aria-label="Назад">‹</button>
+        <button class="dir-arrow next" aria-label="Вперёд">›</button>
+      </div>
+    </div>
+    <a href="#contact" class="dir-cta">Заказать →</a>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process reveal" id="process">
+  <div class="eyebrow">Как мы работаем</div>
+  <h2 class="process-title">Четыре шага<br>к <em>идеальному</em> событию</h2>
+  <div class="step">
+    <span class="step-num">1</span>
+    <div>
+      <div class="step-title">Брифинг</div>
+      <div class="step-text">Изучаем задачу, цели и особенности вашего мероприятия. Погружаемся в детали, чтобы предложить именно то, что нужно.</div>
+    </div>
+  </div>
+  <div class="step">
+    <span class="step-num">2</span>
+    <div>
+      <div class="step-title">Концепция</div>
+      <div class="step-text">Создаём идею, сценарий и визуальную концепцию. Каждый элемент отражает вашу историю.</div>
+    </div>
+  </div>
+  <div class="step">
+    <span class="step-num">3</span>
+    <div>
+      <div class="step-title">Подготовка</div>
+      <div class="step-text">Формируем команду и контролируем все процессы — от декора до логистики. Вы отдыхаете, мы работаем.</div>
+    </div>
+  </div>
+  <div class="step">
+    <span class="step-num">4</span>
+    <div>
+      <div class="step-title">Реализация</div>
+      <div class="step-text">Проводим мероприятие и берём полную ответственность за результат. Ваши гости запомнят этот день навсегда.</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats reveal" id="stats">
+  <div class="eyebrow">Мы в цифрах</div>
+  <h2 class="stats-title">Результаты,<br>которые <em>говорят сами</em></h2>
+  <div class="stats-grid">
+    <div class="stat">
+      <div class="stat-value">30<sup>+</sup></div>
+      <div class="stat-label">реализованных проектов</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">5</div>
+      <div class="stat-label">лет опыта в индустрии</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">1к<sup>+</sup></div>
+      <div class="stat-label">гостей на крупнейших событиях</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">100<sup>%</sup></div>
+      <div class="stat-label">соблюдение сроков</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section reveal" id="contact">
+  <div class="cta-eyebrow">Давайте работать</div>
+  <h2 class="cta-title">
+    Создадим событие,<br>
+    <em>о котором будут говорить</em>
+  </h2>
+  <p class="cta-text">Свяжитесь с нами — обсудим вашу задачу и предложим концепцию.</p>
+  <a href="https://wa.me/996000000000" class="cta-btn" target="_blank" rel="noopener">
+    Написать в WhatsApp
+  </a>
+  <div class="cta-links">
+    <a href="tel:+996000000000" class="cta-link">Позвонить</a>
+    <a href="https://instagram.com/ivory.event.bureau" class="cta-link" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <span class="fb-main">Ivory</span>
+    <span class="fb-sub">Event Bureau</span>
+  </div>
+  <div class="footer-right">
+    <div class="footer-copy">© 2025<br>Bishkek, KG</div>
+  </div>
+</footer>
+
+<script>
+// ── PRELOADER ──
+(function() {
+  const bar = document.getElementById('preloaderBar');
+  const pct = document.getElementById('preloaderPct');
+  const pre = document.getElementById('preloader');
+  let p = 0;
+  const interval = setInterval(() => {
+    const step = p < 60 ? 2 : p < 85 ? 1 : 0.5;
+    p = Math.min(p + step, 95);
+    bar.style.width = p + '%';
+    pct.textContent = Math.floor(p) + '%';
+  }, 30);
+
+  window.addEventListener('load', () => {
+    clearInterval(interval);
+    bar.style.width = '100%';
+    pct.textContent = '100%';
+    bar.style.transition = 'width 0.3s ease';
+    setTimeout(() => {
+      pre.classList.add('hidden');
+      document.body.style.overflow = '';
+    }, 400);
   });
+
+  document.body.style.overflow = 'hidden';
+})();
+
+// ── NAV SCROLL ──
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// ── BURGER MENU ──
+const burgerBtn = document.getElementById('burgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+
+burgerBtn.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.toggle('open');
+  burgerBtn.classList.toggle('open', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+
+function closeMenu() {
+  mobileMenu.classList.remove('open');
+  burgerBtn.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ── SCROLL REVEAL ──
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// ── STAT ACCENT ANIMATION ──
+const statObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); statObs.unobserve(e.target); }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.stat').forEach(el => statObs.observe(el));
+
+// ── CAROUSELS ──
+document.querySelectorAll('.direction-block').forEach(block => {
+  const track = block.querySelector('.dir-track');
+  const slides = block.querySelectorAll('.dir-slide');
+  const countEl = block.querySelector('.dir-count');
+  const prevBtn = block.querySelector('.dir-arrow.prev');
+  const nextBtn = block.querySelector('.dir-arrow.next');
+  if (!track || !slides.length) return;
+  const total = slides.length;
+  const getStep = () => slides[0].getBoundingClientRect().width || track.offsetWidth;
+  const update = () => {
+    const step = getStep() || 1;
+    let idx = Math.round(track.scrollLeft / step);
+    idx = Math.max(0, Math.min(total - 1, idx));
+    if (countEl) countEl.textContent = String(idx + 1).padStart(2,'0') + ' / ' + String(total).padStart(2,'0');
+    if (prevBtn) prevBtn.disabled = idx === 0;
+    if (nextBtn) nextBtn.disabled = idx === total - 1;
+  };
+  let t;
+  track.addEventListener('scroll', () => { clearTimeout(t); t = setTimeout(update, 80); }, { passive: true });
+  prevBtn?.addEventListener('click', () => track.scrollBy({ left: -getStep(), behavior: 'smooth' }));
+  nextBtn?.addEventListener('click', () => track.scrollBy({ left: getStep(), behavior: 'smooth' }));
+  update();
+});
 </script>
 </body>
 </html>
